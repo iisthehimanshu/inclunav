@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/card_view"
+    android:layout_width="150dp"
+    android:layout_height="wrap_content"
+    android:layout_margin="10dp"
+    app:cardCornerRadius="10dp"
+    android:clickable="true"
+    app:cardElevation="4dp">
+
+    <!-- Container for Image and Text Views -->
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ImageButton
+            android:id="@+id/downloadbuilding"
+            android:layout_width="150dp"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:background="@null"
+            android:contentDescription="download this building"
+             />
+
+        <ImageView
+            android:id="@+id/imageView3"
+            android:layout_width="match_parent"
+            android:layout_height="120dp"
+            android:adjustViewBounds="true"
+            android:scaleType="centerCrop"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:orientation="vertical">
+
+            <!-- Image View for Building Photo -->
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+
+                <ImageView
+                    android:id="@+id/building_image"
+                    android:layout_width="match_parent"
+                    android:layout_height="120dp"
+                    android:adjustViewBounds="true"
+                    android:scaleType="centerCrop" />
+
+                <View
+                    android:id="@+id/tint"
+                    android:layout_width="match_parent"
+                    android:layout_height="120dp"
+                    android:background="#70000000"
+                    android:contentDescription="" />
+
+                <ImageView
+                    android:id="@+id/isdownloaded"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="right"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginEnd="3dp"
+                    android:background="@null"
+                    android:contentDescription="@string/you_can_use_this_building_offline"
+                    android:src="@drawable/baseline_circle_24"
+                    app:tint="#FF0000" />
+
+                <ImageView
+                    android:id="@+id/downloadicon"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_gravity="center"
+                    android:src="@drawable/baseline_download_for_offline_24" />
+            </FrameLayout>
+
+            <!-- Text View for Building Name -->
+
+            <TextView
+                android:id="@+id/building_name"
+                style="@style/BuildingNameStyle"
+                android:layout_width="wrap_content"
+                android:contentDescription="@string/building_name"
+                tools:text="Building Name" />
+
+            <!-- Text View for Venue Name -->
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <ImageView
+                    android:id="@+id/cal"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginStart="5dp"
+                    android:src="@drawable/baseline_calendar_month_24" />
+
+                <TextView
+                    android:id="@+id/venue_name"
+                    style="@style/VenueNameStyle"
+                    android:layout_width="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:contentDescription="@string/venue_name"
+                    android:gravity="center_horizontal|center_vertical"
+                    tools:text="Venue Name" />
+            </FrameLayout>
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <ImageButton
+                    android:id="@+id/updatebuilding"
+                    android:layout_width="30dp"
+                    android:layout_height="20dp"
+                    android:layout_gravity="right"
+                    android:layout_marginEnd="5dp"
+                    android:background="@null"
+                    android:contentDescription="update this building"
+                    android:src="@drawable/updatedata" />
+
+                <TextView
+                    android:id="@+id/distance"
+                    style="@style/VenueNameStyle"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center_horizontal"
+                    android:contentDescription="@string/your_distance_from_the_building"
+                    android:gravity="center_horizontal"
+                    tools:text="Distance" />
+
+                <ImageView
+                    android:id="@+id/loc"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginStart="5dp"
+                    android:src="@drawable/baseline_location_on_24" />
+            </FrameLayout>
+
+        </LinearLayout>
+    </FrameLayout>
+
+</androidx.cardview.widget.CardView>

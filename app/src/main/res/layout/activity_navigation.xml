@@ -1,0 +1,1985 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mainContainer"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/app_background_dark_color"
+    android:contentDescription="@string/swap"
+    android:focusableInTouchMode="true"
+    android:orientation="vertical">
+
+    <View
+        android:id="@+id/invisibleView"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:contentDescription="Description for TalkBack"
+        android:visibility="invisible" />
+
+
+    <TextView
+        android:id="@+id/welcomeView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:text="Welcome to Navigation. \n Use option on the top to navigate."
+        android:textColor="#ffffff"
+
+        android:textSize="@dimen/_16sdp" />
+
+    <HorizontalScrollView
+        android:id="@+id/horizontalScrollView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="@dimen/_42sdp"
+        android:fillViewport="true">
+
+        <LinearLayout
+            android:id="@+id/sliderView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+
+        </LinearLayout>
+    </HorizontalScrollView>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <FrameLayout
+            android:id="@+id/back"
+            android:layout_width="match_parent"
+            android:background="@color/black"
+            android:layout_height="@dimen/_99sdp">
+
+            <LinearLayout
+                android:id="@+id/header"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_48sdp"
+                android:background="#000000"
+                android:orientation="horizontal"
+                android:visibility="gone">
+
+                <TextView
+                    android:layout_width="@dimen/_16sdp"
+                    android:layout_height="@dimen/_26sdp"
+                    android:layout_marginLeft="@dimen/_20sdp"
+                    android:background="@drawable/ic_back_arrow"
+                    android:contentDescription="Back button to go back to dashboard"
+                    android:gravity="center"
+                    android:onClick="goBack"
+                    android:textColor="#00000000" />
+
+                <TextView
+                    android:id="@+id/topHeaderText"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_44sdp"
+                    android:layout_marginLeft="@dimen/_20sdp"
+                    android:background="#000000"
+                    android:contentDescription="Select venue and building from the dropdown list"
+                    android:gravity="center|left"
+                    android:onClick="toggleVenueBuildingView"
+                    android:text="Select venue and building"
+                    android:textColor="#ffffff"
+                    android:textSize="@dimen/_12sdp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/selectSourceLinearLayout"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_48sdp"
+                android:layout_gravity="top"
+                android:layout_marginHorizontal="4dp"
+                android:layout_marginTop="4dp"
+                android:orientation="horizontal"
+                android:visibility="invisible">
+
+                <ImageView
+                    android:layout_width="@dimen/_30sdp"
+                    android:layout_height="@dimen/_30sdp"
+                    android:layout_gravity="center"
+                    android:layout_marginLeft="16dp"
+                    android:src="@drawable/ic_location"
+                    app:tint="#ffffff" />
+
+                <TextView
+                    android:id="@+id/searchSourceDialog"
+                    android:layout_width="@dimen/_240sdp"
+                    android:layout_height="@dimen/_48sdp"
+                    android:layout_marginTop="@dimen/_2sdp"
+                    android:background="#000000"
+                    android:contentDescription="Select source location from the dropdown list"
+                    android:gravity="center"
+                    android:hint="Select source location"
+                    android:onClick="toggleSearchSourceDialog"
+                    android:paddingLeft="@dimen/_12sdp"
+                    android:textAlignment="viewStart"
+                    android:textColor="#ffffff"
+                    android:textColorHint="#ffffff"
+                    android:textSize="@dimen/_12sdp"
+                    tools:ignore="RtlCompat" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_40sdp"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="@dimen/_2sdp"
+                    android:layout_marginEnd="8dp"
+                    android:layout_marginBottom="@dimen/_4sdp"
+                    android:background="@drawable/border_white"
+                    android:backgroundTint="#000000"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:layout_width="1dp"
+                        android:layout_height="@dimen/_20sdp"
+                        android:layout_gravity="center"
+                        android:layout_marginLeft="@dimen/_8sdp"
+                        android:src="@drawable/ic_search_square"
+                        android:visibility="invisible"
+                        app:tint="#ffffff" />
+
+                    <com.inclunav.iwayplus.layout_utilities.InstantAutoComplete
+                        android:id="@+id/sourcePointEditText"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:background="#000000"
+                        android:hint="Search source location"
+                        android:paddingLeft="@dimen/_8sdp"
+                        android:paddingRight="@dimen/_4sdp"
+                        android:singleLine="true"
+                        android:textColor="#ffffff"
+                        android:textColorHint="#ffffff"
+                        android:textSize="@dimen/_12sdp" />
+
+                    <ImageView
+                        android:layout_width="@dimen/_20sdp"
+                        android:layout_height="@dimen/_20sdp"
+                        android:layout_gravity="center"
+                        android:background="#000000"
+                        android:contentDescription="clear source location"
+                        android:onClick="EraseTextBox1"
+                        android:src="@drawable/cross"
+                        app:tint="@color/white" />
+
+                    <ImageView
+                        android:id="@+id/mic_button_source_button"
+                        android:layout_width="@dimen/_24sdp"
+                        android:layout_height="@dimen/_24sdp"
+                        android:layout_gravity="center"
+                        android:background="#000000"
+                        android:contentDescription="search source location mic button"
+                        android:src="@drawable/ic_baseline_mic_24"
+                        android:visibility="gone" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/selectDestinationLinearLayout"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_48sdp"
+                android:layout_gravity="bottom"
+                android:layout_marginHorizontal="2dp"
+                android:orientation="horizontal"
+                android:visibility="invisible">
+
+                <ImageView
+                    android:layout_width="@dimen/_24sdp"
+                    android:layout_height="@dimen/_24sdp"
+                    android:layout_gravity="center"
+                    android:layout_marginLeft="28dp"
+                    android:src="@drawable/ic_compass"
+                    app:tint="#ffffff" />
+
+                <TextView
+                    android:id="@+id/searchDestinationDialog"
+                    android:layout_width="314dp"
+                    android:layout_height="@dimen/_48sdp"
+                    android:background="#000000"
+                    android:contentDescription="Select destination location from the dropdown list"
+                    android:gravity="center"
+                    android:hint="Select destination location"
+                    android:onClick="toggleSearchDestinationDialog"
+                    android:paddingLeft="@dimen/_12sdp"
+                    android:textAlignment="viewStart"
+                    android:textColor="#ffffff"
+                    android:textColorHint="#ffffff"
+                    android:textSize="@dimen/_12sdp"
+                    tools:ignore="RtlCompat" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_40sdp"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="@dimen/_2sdp"
+                    android:layout_marginEnd="8dp"
+                    android:layout_marginBottom="@dimen/_4sdp"
+                    android:background="@drawable/border_white"
+                    android:backgroundTint="#000000"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:layout_width="2dp"
+                        android:layout_height="@dimen/_20sdp"
+                        android:layout_gravity="center"
+                        android:layout_marginLeft="@dimen/_8sdp"
+                        android:src="@drawable/ic_search_square"
+                        android:visibility="invisible"
+                        app:tint="#ffffff" />
+
+                    <com.inclunav.iwayplus.layout_utilities.InstantAutoComplete
+                        android:id="@+id/destinationPointEdittext"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:background="#000000"
+                        android:hint="Search Destination location"
+                        android:paddingLeft="@dimen/_8sdp"
+                        android:paddingRight="@dimen/_4sdp"
+                        android:singleLine="true"
+                        android:textColor="#ffffff"
+                        android:textColorHint="#ffffff"
+                        android:textSize="@dimen/_12sdp" />
+
+                    <ImageView
+                        android:layout_width="@dimen/_20sdp"
+                        android:layout_height="@dimen/_20sdp"
+                        android:layout_gravity="center"
+                        android:background="#000000"
+                        android:contentDescription="clear destination location"
+                        android:onClick="EraseTextBox2"
+                        android:src="@drawable/cross"
+                        app:tint="@color/white" />
+
+                    <ImageView
+                        android:id="@+id/mic_button_destination_button"
+                        android:layout_width="@dimen/_24sdp"
+                        android:layout_height="@dimen/_24sdp"
+                        android:layout_gravity="center"
+                        android:background="#000000"
+                        android:contentDescription="search destination location mic button"
+                        android:src="@drawable/ic_baseline_mic_24"
+                        android:visibility="gone" />
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center">
+
+                <ImageView
+                    android:id="@+id/swap"
+                    android:layout_width="45dp"
+                    android:layout_height="45dp"
+                    android:layout_gravity="center"
+                    android:contentDescription="@string/swap"
+                    android:foreground="@drawable/swap" />
+
+                <LinearLayout
+                    android:layout_width="@dimen/_280sdp"
+                    android:layout_height="@dimen/_1sdp"
+                    android:layout_gravity="center"
+                    android:background="#ffffff"
+                    android:gravity="center" />
+
+            </FrameLayout>
+
+        </FrameLayout>
+
+        <LinearLayout
+            android:id="@+id/recentMessageContainer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:visibility="gone">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_36sdp"
+                android:background="#000000">
+
+                <ImageView
+                    android:id="@+id/imageMsg"
+                    android:layout_width="@dimen/_28sdp"
+                    android:layout_height="@dimen/_28sdp"
+                    android:layout_gravity="center"
+                    android:layout_marginLeft="@dimen/_18sdp"
+                    android:layout_marginRight="@dimen/_8sdp"
+                    android:contentDescription="next route direction"
+                    android:foreground="?attr/selectableItemBackground"
+                    android:padding="@dimen/_4sdp"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/straight"
+                    app:tint="#ffffff" />
+
+                <TextView
+                    android:id="@+id/recentMessage"
+                    android:layout_width="@dimen/_260sdp"
+                    android:layout_height="@dimen/_36sdp"
+                    android:gravity="center"
+                    android:paddingVertical="@dimen/_4sdp"
+                    android:text=""
+                    android:textAlignment="viewStart"
+                    android:textColor="#ffffff"
+                    android:textSize="@dimen/_12sdp"
+                    android:textStyle="bold"
+                    tools:ignore="RtlCompat" />
+            </LinearLayout>
+
+        </LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/venueBuildingView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/_32sdp"
+        android:layout_marginTop="@dimen/_40sdp"
+        android:background="@drawable/border_white"
+        android:backgroundTint="#ffffff"
+        android:orientation="vertical"
+        android:visibility="visible">
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_40sdp"
+            android:layout_gravity="center"
+            android:layout_marginBottom="@dimen/_4sdp"
+            android:background="@drawable/border_white"
+            android:backgroundTint="#000000"
+            android:orientation="horizontal">
+
+            <com.inclunav.iwayplus.layout_utilities.InstantAutoComplete
+                android:id="@+id/venueList"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="#000000"
+                android:drawableLeft="@drawable/ic_search_square"
+                android:drawablePadding="@dimen/_12sdp"
+                android:gravity="center"
+                android:hint="Select Venue"
+                android:paddingLeft="@dimen/_4sdp"
+                android:textAlignment="viewStart"
+                android:textColor="#ffffff"
+                android:textColorHint="#ffffff"
+                android:textSize="@dimen/_12sdp"
+                tools:ignore="RtlCompat" />
+
+            <ImageView
+                android:id="@+id/EraseVenueTextBox"
+                android:layout_width="@dimen/_20sdp"
+                android:layout_height="@dimen/_20sdp"
+                android:layout_gravity="center"
+                android:background="#000000"
+                android:contentDescription="clear venue"
+                android:src="@drawable/cross"
+                app:tint="@color/white" />
+
+            <ImageView
+                android:id="@+id/mic_button_venue"
+                android:layout_width="@dimen/_24sdp"
+                android:layout_height="@dimen/_24sdp"
+                android:layout_gravity="center"
+                android:background="#000000"
+                android:src="@drawable/ic_baseline_mic_24" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_40sdp"
+            android:layout_gravity="center"
+            android:background="@drawable/border_white"
+            android:backgroundTint="#000000"
+            android:orientation="horizontal">
+
+            <com.inclunav.iwayplus.layout_utilities.InstantAutoComplete
+                android:id="@+id/buildingList"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="#000000"
+                android:drawableLeft="@drawable/ic_search_square"
+                android:drawablePadding="@dimen/_12sdp"
+                android:hint="Search Building"
+                android:paddingLeft="@dimen/_4sdp"
+                android:singleLine="true"
+                android:textColor="#ffffff"
+                android:textColorHint="#ffffff"
+                android:textSize="@dimen/_12sdp" />
+
+            <ImageView
+                android:id="@+id/EraseBuildingTextBox"
+                android:layout_width="@dimen/_20sdp"
+                android:layout_height="@dimen/_20sdp"
+                android:layout_gravity="center"
+                android:background="#000000"
+                android:contentDescription="clear building"
+                android:src="@drawable/cross"
+                app:tint="@color/white" />
+
+            <ImageView
+                android:id="@+id/mic_button_building"
+                android:layout_width="@dimen/_24sdp"
+                android:layout_height="@dimen/_24sdp"
+                android:layout_gravity="center"
+                android:background="#000000"
+                android:src="@drawable/ic_baseline_mic_24" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/sourceViewToAnimate"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/_32sdp"
+        android:layout_marginTop="@dimen/_80sdp"
+        android:background="@drawable/border_white"
+        android:backgroundTint="#ffffff"
+        android:orientation="vertical"
+        android:visibility="gone">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_40sdp"
+            android:layout_gravity="center"
+            android:layout_marginBottom="@dimen/_4sdp"
+            android:background="@drawable/border_white"
+            android:backgroundTint="#000000"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_width="@dimen/_20sdp"
+                android:layout_height="@dimen/_20sdp"
+                android:layout_gravity="center"
+                android:layout_marginLeft="@dimen/_8sdp"
+                android:src="@drawable/ic_search_square"
+                app:tint="#ffffff" />
+
+            <com.inclunav.iwayplus.layout_utilities.InstantAutoComplete
+                android:id="@+id/sourcePoint"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="#000000"
+                android:hint="Search within Locality"
+                android:paddingLeft="@dimen/_8sdp"
+                android:paddingRight="@dimen/_4sdp"
+                android:singleLine="true"
+                android:textColor="#ffffff"
+                android:textColorHint="#ffffff"
+                android:textSize="@dimen/_12sdp" />
+
+            <ImageView
+                android:layout_width="@dimen/_20sdp"
+                android:layout_height="@dimen/_20sdp"
+                android:layout_gravity="center"
+                android:background="#000000"
+                android:onClick="EraseTextBox"
+                android:src="@drawable/cross"
+                app:tint="@color/white" />
+
+            <ImageView
+                android:id="@+id/mic_button_source"
+                android:layout_width="@dimen/_24sdp"
+                android:layout_height="@dimen/_24sdp"
+                android:layout_gravity="center"
+                android:background="#000000"
+                android:src="@drawable/ic_baseline_mic_24" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginBottom="@dimen/_4sdp"
+            android:background="@drawable/border_white"
+            android:backgroundTint="#000000"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_width="@dimen/_20sdp"
+                android:layout_height="@dimen/_20sdp"
+                android:layout_gravity="center"
+                android:layout_marginLeft="@dimen/_8sdp"
+                android:backgroundTint="#ffffff"
+                android:src="@drawable/home"
+                app:tint="#ffffff" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_32sdp"
+                android:background="#000000"
+                android:gravity="center"
+                android:hint="Home\nRoom/House. Building, campus, City - 12376"
+                android:paddingLeft="@dimen/_8sdp"
+                android:textAlignment="viewStart"
+                android:textColor="#ffffff"
+                android:textColorHint="#ffffff"
+                android:textSize="@dimen/_12sdp"
+                tools:ignore="RtlCompat" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginBottom="@dimen/_4sdp"
+            android:background="@drawable/border_white"
+            android:backgroundTint="#000000"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_width="@dimen/_20sdp"
+                android:layout_height="@dimen/_20sdp"
+                android:layout_gravity="center"
+                android:layout_marginLeft="@dimen/_8sdp"
+                android:src="@drawable/suitcase"
+                app:tint="#ffffff" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_32sdp"
+                android:background="#000000"
+                android:gravity="center"
+                android:hint="Work\nRoom/House. Building, campus, City - 12376"
+                android:paddingLeft="@dimen/_8sdp"
+                android:textAlignment="viewStart"
+                android:textColor="#ffffff"
+                android:textColorHint="#ffffff"
+                android:textSize="@dimen/_12sdp"
+                tools:ignore="RtlCompat" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginBottom="@dimen/_4sdp"
+            android:background="@drawable/border_white"
+            android:backgroundTint="#000000"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_width="@dimen/_20sdp"
+                android:layout_height="@dimen/_20sdp"
+                android:layout_gravity="center"
+                android:layout_marginLeft="@dimen/_8sdp"
+                android:src="@drawable/ic_bookmark"
+                app:tint="#ffffff" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_32sdp"
+                android:background="#000000"
+                android:gravity="center"
+                android:hint="Saved Address\nRoom/House. Building, campus, City - 12376"
+                android:paddingLeft="@dimen/_8sdp"
+                android:textAlignment="viewStart"
+                android:textColor="#ffffff"
+                android:textColorHint="#ffffff"
+                android:textSize="@dimen/_12sdp"
+                tools:ignore="RtlCompat" />
+
+        </LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/destinationViewToAnimate"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/_32sdp"
+        android:layout_marginTop="@dimen/_128sdp"
+        android:background="@drawable/border_white"
+        android:backgroundTint="#ffffff"
+        android:orientation="vertical"
+        android:visibility="gone">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_40sdp"
+            android:layout_gravity="center"
+            android:layout_marginBottom="@dimen/_4sdp"
+            android:background="@drawable/border_white"
+            android:backgroundTint="#000000"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_width="@dimen/_20sdp"
+                android:layout_height="@dimen/_20sdp"
+                android:layout_gravity="center"
+                android:layout_marginLeft="@dimen/_8sdp"
+                android:src="@drawable/ic_search_square"
+                app:tint="#ffffff" />
+
+            <com.inclunav.iwayplus.layout_utilities.InstantAutoComplete
+                android:id="@+id/destinationPoint"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="#000000"
+                android:hint="Search within Locality"
+                android:paddingLeft="@dimen/_8sdp"
+                android:paddingRight="@dimen/_4sdp"
+                android:singleLine="true"
+                android:textColor="#ffffff"
+                android:textColorHint="#ffffff"
+                android:textSize="@dimen/_12sdp" />
+
+            <ImageView
+                android:layout_width="@dimen/_20sdp"
+                android:layout_height="@dimen/_20sdp"
+                android:layout_gravity="center"
+                android:background="#000000"
+                android:onClick="EraseTextBox"
+                android:src="@drawable/cross"
+                app:tint="@color/white" />
+
+            <ImageView
+                android:id="@+id/mic_button_destination"
+                android:layout_width="@dimen/_24sdp"
+                android:layout_height="@dimen/_24sdp"
+                android:layout_gravity="center"
+                android:background="#000000"
+                android:src="@drawable/ic_baseline_mic_24" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginBottom="@dimen/_4sdp"
+            android:background="@drawable/border_white"
+            android:backgroundTint="#000000"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_width="@dimen/_20sdp"
+                android:layout_height="@dimen/_20sdp"
+                android:layout_gravity="center"
+                android:layout_marginLeft="@dimen/_8sdp"
+                android:backgroundTint="#ffffff"
+                android:src="@drawable/home"
+                app:tint="#ffffff" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_32sdp"
+                android:background="#000000"
+                android:gravity="center"
+                android:hint="Home\nRoom/House. Building, campus, City - 12376"
+                android:paddingLeft="@dimen/_8sdp"
+                android:textAlignment="viewStart"
+                android:textColor="#ffffff"
+                android:textColorHint="#ffffff"
+                android:textSize="@dimen/_12sdp"
+                tools:ignore="RtlCompat" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginBottom="@dimen/_4sdp"
+            android:background="@drawable/border_white"
+            android:backgroundTint="#000000"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_width="@dimen/_20sdp"
+                android:layout_height="@dimen/_20sdp"
+                android:layout_gravity="center"
+                android:layout_marginLeft="@dimen/_8sdp"
+                android:src="@drawable/suitcase"
+                app:tint="#ffffff" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_32sdp"
+                android:background="#000000"
+                android:gravity="center"
+                android:hint="Work\nRoom/House. Building, campus, City - 12376"
+                android:paddingLeft="@dimen/_8sdp"
+                android:textAlignment="viewStart"
+                android:textColor="#ffffff"
+                android:textColorHint="#ffffff"
+                android:textSize="@dimen/_12sdp"
+                tools:ignore="RtlCompat" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginBottom="@dimen/_4sdp"
+            android:background="@drawable/border_white"
+            android:backgroundTint="#000000"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_width="@dimen/_20sdp"
+                android:layout_height="@dimen/_20sdp"
+                android:layout_gravity="center"
+                android:layout_marginLeft="@dimen/_8sdp"
+                android:src="@drawable/ic_bookmark"
+                app:tint="#ffffff" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_32sdp"
+                android:background="#000000"
+                android:gravity="center"
+                android:hint="Saved Address\nRoom/House. Building, campus, City - 12376"
+                android:paddingLeft="@dimen/_8sdp"
+                android:textAlignment="viewStart"
+                android:textColor="#ffffff"
+                android:textColorHint="#ffffff"
+                android:textSize="@dimen/_12sdp"
+                tools:ignore="RtlCompat" />
+
+        </LinearLayout>
+    </LinearLayout>
+
+
+    <TextView
+        android:id="@+id/debugView"
+        android:layout_width="@dimen/_180sdp"
+        android:layout_height="300dp"
+        android:layout_gravity="right"
+        android:scrollbars="vertical"
+        android:textColor="#000000"
+        android:visibility="visible" />
+
+    <TextView
+        android:id="@+id/debugView2"
+        android:layout_width="@dimen/_240sdp"
+        android:layout_height="@dimen/_100sdp"
+        android:layout_gravity="bottom"
+        android:layout_marginBottom="@dimen/_100sdp"
+        android:scrollbars="vertical"
+        android:textColor="#000000"
+        android:visibility="gone" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:orientation="vertical">
+
+        <ImageButton
+            android:id="@+id/volumeButton"
+            android:layout_width="@dimen/_48sdp"
+            android:layout_height="@dimen/_48sdp"
+            android:layout_gravity="top|right"
+            android:layout_marginRight="@dimen/_8sdp"
+            android:layout_marginBottom="@dimen/_8sdp"
+            android:background="@drawable/round_button"
+            android:contentDescription="toggle volume button"
+            android:foreground="?attr/selectableItemBackground"
+            android:padding="@dimen/_8sdp"
+            android:scaleType="fitCenter"
+            android:visibility="gone"
+            app:tint="#ffffff" />
+
+        <ImageButton
+            android:id="@+id/navigationButton"
+            android:layout_width="@dimen/_48sdp"
+            android:layout_height="@dimen/_48sdp"
+            android:layout_gravity="top|right"
+            android:layout_marginRight="@dimen/_8sdp"
+            android:layout_marginBottom="@dimen/_62sdp"
+            android:background="@drawable/round_button"
+            android:contentDescription="toggle navigation button"
+            android:foreground="?attr/selectableItemBackground"
+            android:padding="@dimen/_8sdp"
+            android:scaleType="fitCenter"
+            android:src="@drawable/ic_navigationsensor"
+            android:visibility="gone"
+            app:tint="#ffffff" />
+
+        <ImageView
+            android:id="@+id/searchLocationButton"
+            android:layout_width="@dimen/_48sdp"
+            android:layout_height="@dimen/_48sdp"
+            android:layout_gravity="bottom|right"
+            android:layout_marginRight="@dimen/_8sdp"
+            android:layout_marginBottom="@dimen/_8sdp"
+            android:background="@drawable/round_button"
+            android:contentDescription="locate your location"
+            android:foreground="?attr/selectableItemBackground"
+            android:onClick="searchLocationButton"
+            android:padding="@dimen/_8sdp"
+            android:scaleType="fitCenter"
+            android:src="@drawable/ic_find_location"
+            app:tint="#ffffff" />
+
+        <ImageButton
+            android:id="@+id/reLocalize"
+            android:layout_width="@dimen/_48sdp"
+            android:layout_height="@dimen/_48sdp"
+            android:layout_gravity="bottom|right"
+            android:layout_marginRight="@dimen/_8sdp"
+            android:layout_marginBottom="@dimen/_8sdp"
+            android:background="@drawable/round_button"
+            android:onClick="resetCanvas"
+            android:contentDescription="Reset map preview"
+            android:padding="@dimen/_8sdp"
+            android:scaleType="fitCenter"
+            android:src="@drawable/reset"
+            android:tooltipText="Reset"
+            android:visibility="gone"
+            app:tint="#ffffff" />
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/plan"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom|right"
+            android:layout_marginRight="@dimen/_8sdp"
+            android:layout_marginBottom="@dimen/_8sdp"
+            android:visibility="gone"
+            app:cardCornerRadius="@dimen/_20sdp">
+
+            <Button
+                android:layout_width="@dimen/_40sdp"
+                android:layout_height="@dimen/_40sdp"
+                android:background="@drawable/button_color_layout"
+                android:text="PLAN"
+                android:textStyle="bold" />
+        </androidx.cardview.widget.CardView>
+
+        <LinearLayout
+            android:id="@+id/modal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom|center"
+            android:background="#000000"
+            android:orientation="vertical"
+            android:padding="@dimen/_8sdp"
+            android:visibility="visible">
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="4"
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="3">
+
+                    <ImageView
+                        android:layout_width="@dimen/_28sdp"
+                        android:layout_height="@dimen/_28sdp"
+                        android:layout_marginRight="@dimen/_8sdp"
+                        android:src="@drawable/ic_location_current"
+                        app:tint="#fff" />
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/modalDestinationName"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text=""
+                            android:textColor="#fff"
+                            android:textSize="@dimen/_14sdp" />
+
+                        <TextView
+                            android:id="@+id/modalDestinationVenueName"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text=""
+                            android:textColor="#fff"
+                            android:textSize="@dimen/_10sdp" />
+
+                        <TextView
+                            android:id="@+id/modalDestinationDateTime"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text=""
+                            android:textColor="#fff"
+                            android:textSize="@dimen/_10sdp" />
+                    </LinearLayout>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/modalDestinationDistance"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="(000 km)"
+                        android:textColor="#fff"
+                        android:textSize="@dimen/_12sdp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text=""
+                        android:textColor="#fff"
+                        android:textSize="@dimen/_10sdp" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_8sdp"
+                android:orientation="horizontal">
+
+                <androidx.cardview.widget.CardView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginRight="@dimen/_16sdp"
+                    app:cardCornerRadius="@dimen/_20sdp">
+
+                    <Button
+                        android:id="@+id/modalDirection"
+                        android:layout_width="@dimen/_120sdp"
+                        android:layout_height="@dimen/_40sdp"
+                        android:background="@drawable/button_color_layout"
+                        android:paddingHorizontal="@dimen/_8sdp"
+                        android:text="DIRECTIONS"
+                        android:textSize="@dimen/_14sdp"
+                        android:textStyle="bold" />
+                </androidx.cardview.widget.CardView>
+
+                <ImageButton
+                    android:layout_width="@dimen/_36sdp"
+                    android:layout_height="@dimen/_36sdp"
+                    android:layout_marginHorizontal="@dimen/_6sdp"
+                    android:background="@drawable/round_button"
+                    android:contentDescription="Save Location"
+                    android:foreground="?attr/selectableItemBackground"
+                    android:onClick="saveLocationDestination"
+                    android:padding="@dimen/_8sdp"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/ic_bookmark" />
+
+                <ImageButton
+                    android:layout_width="@dimen/_36sdp"
+                    android:layout_height="@dimen/_36sdp"
+                    android:layout_marginHorizontal="@dimen/_6sdp"
+                    android:background="@drawable/round_button"
+                    android:contentDescription="Share location"
+                    android:foreground="?attr/selectableItemBackground"
+                    android:onClick="shareLocationDestination"
+                    android:padding="@dimen/_8sdp"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/ic_share" />
+
+                <ImageButton
+                    android:layout_width="@dimen/_36sdp"
+                    android:layout_height="@dimen/_36sdp"
+                    android:layout_marginHorizontal="@dimen/_6sdp"
+                    android:background="@drawable/round_button"
+                    android:contentDescription="make a call"
+                    android:foreground="?attr/selectableItemBackground"
+                    android:onClick="contactLocationDestination"
+                    android:padding="@dimen/_8sdp"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/ic_phone" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/modalSource"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom|center"
+            android:background="#000000"
+            android:orientation="vertical"
+            android:padding="@dimen/_8sdp"
+            android:visibility="gone">
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="4"
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="4">
+
+                    <ImageView
+                        android:layout_width="@dimen/_28sdp"
+                        android:layout_height="@dimen/_28sdp"
+                        android:layout_marginRight="@dimen/_8sdp"
+                        android:src="@drawable/ic_location_current"
+                        app:tint="#fff" />
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/modalSourceName"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text=""
+                            android:textColor="#fff"
+                            android:textSize="@dimen/_14sdp" />
+
+                        <TextView
+                            android:id="@+id/modalSourceVenueName"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text=""
+                            android:textColor="#fff"
+                            android:textSize="@dimen/_10sdp" />
+
+                        <TextView
+                            android:id="@+id/modalSourceVenueDateTime"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text=""
+                            android:textColor="#fff"
+                            android:textSize="@dimen/_10sdp" />
+                    </LinearLayout>
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_8sdp"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+                <ImageButton
+                    android:layout_width="@dimen/_32sdp"
+                    android:layout_height="@dimen/_32sdp"
+                    android:layout_marginHorizontal="@dimen/_12sdp"
+                    android:background="@drawable/round_button"
+                    android:contentDescription="save location"
+                    android:foreground="?attr/selectableItemBackground"
+                    android:onClick="saveLocation"
+                    android:padding="@dimen/_8sdp"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/ic_bookmark" />
+
+                <ImageButton
+                    android:layout_width="@dimen/_32sdp"
+                    android:layout_height="@dimen/_32sdp"
+                    android:layout_marginHorizontal="@dimen/_12sdp"
+                    android:background="@drawable/round_button"
+                    android:contentDescription="share location"
+                    android:onClick="shareLocation"
+                    android:padding="@dimen/_8sdp"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/ic_share" />
+
+                <ImageButton
+                    android:layout_width="@dimen/_32sdp"
+                    android:layout_height="@dimen/_32sdp"
+                    android:layout_marginHorizontal="@dimen/_12sdp"
+                    android:background="@drawable/round_button"
+                    android:contentDescription="make a call"
+                    android:foreground="?attr/selectableItemBackground"
+                    android:onClick="contactLocation"
+                    android:padding="@dimen/_8sdp"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/ic_phone" />
+
+                <ImageButton
+                    android:layout_width="@dimen/_32sdp"
+                    android:layout_height="@dimen/_32sdp"
+                    android:layout_marginHorizontal="@dimen/_12sdp"
+                    android:background="@drawable/round_button"
+                    android:contentDescription="go to website"
+                    android:foreground="?attr/selectableItemBackground"
+                    android:onClick="locationLink"
+                    android:padding="@dimen/_8sdp"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/ic_chain" />
+
+                <ImageButton
+                    android:layout_width="@dimen/_32sdp"
+                    android:layout_height="@dimen/_32sdp"
+                    android:layout_marginHorizontal="@dimen/_12sdp"
+                    android:background="@drawable/round_button"
+                    android:contentDescription="Review and Report a problem"
+                    android:foreground="?attr/selectableItemBackground"
+                    android:padding="@dimen/_8sdp"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/ic_flag" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/modalRoute"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom|center"
+            android:background="#000000"
+            android:orientation="vertical"
+            android:paddingTop="@dimen/_8sdp"
+            android:visibility="gone">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:paddingHorizontal="@dimen/_8sdp"
+                android:paddingBottom="@dimen/_8sdp">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginRight="@dimen/_8sdp"
+                    android:contentDescription="Exit navigation"
+                    android:background="@drawable/round_button_black"
+                    android:onClick="showSourDest"
+                    android:src="@drawable/ic_baseline_close_32"
+                    app:tint="#fff" />
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_vertical"
+                        android:layout_gravity="center_horizontal">
+
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:gravity="center_vertical"
+                            android:layout_gravity="center_horizontal"
+                            android:orientation="vertical">
+
+                            <LinearLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:gravity="center_vertical"
+                                android:layout_gravity="center_horizontal"
+                                android:orientation="horizontal">
+
+                                <TextView
+                                    android:id="@+id/distance_in_time"
+                                    android:visibility="visible"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:text=""
+                                    android:textColor="#fff"
+                                    android:textSize="@dimen/_8sdp"
+                                    android:textStyle="bold" />
+
+                                <TextView
+                                    android:id="@+id/distance_in_meter"
+                                    android:visibility="visible"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:layout_gravity="center_horizontal"
+                                    android:text=""
+                                    android:textColor="#fff"
+                                    android:textSize="@dimen/_8sdp" />
+                            </LinearLayout>
+
+                            <TextView
+                                android:id="@+id/distance_in_meter2"
+                                android:layout_gravity="center_horizontal"
+                                android:visibility="visible"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text=""
+                                android:textColor="#fff"
+                                android:textSize="@dimen/_6sdp" />
+                        </LinearLayout>
+                    </LinearLayout>
+
+                    <TextView
+                        android:id="@+id/viaFloorConnection"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text=""
+                        android:textColor="#fff"
+                        android:textSize="@dimen/_12sdp" />
+                </LinearLayout>
+
+                <ImageView
+                    android:id="@+id/infoModal"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_gravity="center"
+                    android:layout_marginLeft="@dimen/_8sdp"
+                    android:background="@drawable/round_button_black"
+                    android:src="@drawable/ic_route"
+                    android:visibility="invisible"
+                    app:tint="#fff" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/information_modal_dropdown"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/white"
+                android:orientation="vertical"
+                android:paddingVertical="@dimen/_2sdp"
+                android:visibility="gone">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_40sdp"
+                    android:layout_gravity="center"
+                    android:layout_marginBottom="@dimen/_2sdp"
+                    android:background="@drawable/border_white"
+                    android:backgroundTint="#000000"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:layout_width="@dimen/_20sdp"
+                        android:layout_height="@dimen/_20sdp"
+                        android:layout_gravity="center"
+                        android:layout_marginLeft="@dimen/_8sdp"
+                        android:src="@drawable/ic_flag"
+                        app:tint="#ffffff" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="#000000"
+                        android:gravity="center"
+                        android:hint="Report a Problem"
+                        android:paddingLeft="@dimen/_8sdp"
+                        android:textAlignment="viewStart"
+                        android:textColor="#ffffff"
+                        android:textColorHint="#ffffff"
+                        android:textSize="@dimen/_12sdp"
+                        tools:ignore="RtlCompat" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_40sdp"
+                    android:layout_gravity="center"
+                    android:layout_marginBottom="@dimen/_2sdp"
+                    android:background="@drawable/border_white"
+                    android:backgroundTint="#000000"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:layout_width="@dimen/_20sdp"
+                        android:layout_height="@dimen/_20sdp"
+                        android:layout_gravity="center"
+                        android:layout_marginLeft="@dimen/_8sdp"
+                        android:src="@drawable/ic_location_share"
+                        app:tint="#ffffff" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="#000000"
+                        android:gravity="center"
+                        android:hint="Share Your Location"
+                        android:onClick="shareLocationDestination"
+                        android:paddingLeft="@dimen/_8sdp"
+                        android:textAlignment="viewStart"
+                        android:textColor="#ffffff"
+                        android:textColorHint="#ffffff"
+                        android:textSize="@dimen/_12sdp"
+                        tools:ignore="RtlCompat" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_40sdp"
+                    android:layout_gravity="center"
+                    android:layout_marginBottom="@dimen/_2sdp"
+                    android:background="@drawable/border_white"
+                    android:backgroundTint="#000000"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:layout_width="@dimen/_24sdp"
+                        android:layout_height="@dimen/_24sdp"
+                        android:layout_gravity="center"
+                        android:layout_marginLeft="@dimen/_6sdp"
+                        android:src="@drawable/ic_baseline_list_24"
+                        app:tint="#ffffff" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="#000000"
+                        android:gravity="center"
+                        android:hint="View Directions"
+                        android:paddingLeft="@dimen/_8sdp"
+                        android:textAlignment="viewStart"
+                        android:textColor="#ffffff"
+                        android:textColorHint="#ffffff"
+                        android:textSize="@dimen/_12sdp"
+                        tools:ignore="RtlCompat" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_40sdp"
+                    android:layout_gravity="center"
+                    android:layout_marginBottom="@dimen/_2sdp"
+                    android:background="@drawable/border_white"
+                    android:backgroundTint="#000000"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:layout_width="@dimen/_20sdp"
+                        android:layout_height="@dimen/_20sdp"
+                        android:layout_gravity="center"
+                        android:layout_marginLeft="@dimen/_8sdp"
+                        android:src="@drawable/ic_phone"
+                        app:tint="#ffffff" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="#000000"
+                        android:gravity="center"
+                        android:hint="Contact Building Staff"
+                        android:onClick="contactLocationDestination"
+                        android:paddingLeft="@dimen/_8sdp"
+                        android:textAlignment="viewStart"
+                        android:textColor="#ffffff"
+                        android:textColorHint="#ffffff"
+                        android:textSize="@dimen/_12sdp"
+                        tools:ignore="RtlCompat" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:visibility="gone">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_40sdp"
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    android:orientation="horizontal"
+                    android:paddingHorizontal="@dimen/_12sdp"
+                    android:paddingTop="@dimen/_4sdp">
+
+                    <TextView
+                        android:id="@+id/sourceRouteInfo"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="#000000"
+                        android:gravity="center"
+                        android:text="Room, Floor\nBuilding"
+                        android:textColor="#ffffff"
+                        android:textColorHint="#ffffff"
+                        android:textSize="@dimen/_12sdp" />
+
+                    <ImageView
+                        android:layout_width="@dimen/_24sdp"
+                        android:layout_height="@dimen/_24sdp"
+                        android:layout_gravity="center"
+                        android:layout_marginHorizontal="@dimen/_12sdp"
+                        android:src="@drawable/ic_route"
+                        app:tint="#ffffff" />
+
+                    <TextView
+                        android:id="@+id/destRouteInfo"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="#000000"
+                        android:gravity="center"
+                        android:text="Room, Floor\nBuilding"
+                        android:textColor="#ffffff"
+                        android:textColorHint="#ffffff"
+                        android:textSize="@dimen/_12sdp" />
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_2sdp"
+                    android:layout_marginHorizontal="@dimen/_12sdp"
+                    android:layout_marginVertical="@dimen/_8sdp"
+                    android:background="@color/setting_background_color" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="@dimen/_36sdp"
+                    android:layout_gravity="left"
+                    android:layout_marginHorizontal="@dimen/_8sdp"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="Steps"
+                    android:textColor="#ffffff"
+                    android:textSize="@dimen/_16sdp"
+                    android:textStyle="bold" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="#000000"
+                    android:orientation="vertical"
+                    android:paddingHorizontal="@dimen/_12sdp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="#000000"
+                        android:visibility="visible">
+
+                        <ImageView
+                            android:id="@+id/imageRoute"
+                            android:layout_width="@dimen/_24sdp"
+                            android:layout_height="@dimen/_24sdp"
+                            android:layout_gravity="center"
+                            android:layout_marginLeft="@dimen/_4sdp"
+                            android:layout_marginRight="@dimen/_8sdp"
+                            android:foreground="?attr/selectableItemBackground"
+                            android:padding="@dimen/_4sdp"
+                            android:scaleType="fitCenter"
+                            android:src="@drawable/straight"
+                            app:tint="#ffffff" />
+
+                        <TextView
+                            android:id="@+id/routeText"
+                            android:layout_width="@dimen/_260sdp"
+                            android:layout_height="@dimen/_36sdp"
+                            android:gravity="center"
+                            android:paddingVertical="@dimen/_4sdp"
+                            android:text="Directions for left turn"
+                            android:textAlignment="viewStart"
+                            android:textColor="#ffffff"
+                            android:textSize="@dimen/_12sdp"
+                            android:textStyle="bold"
+                            tools:ignore="RtlCompat" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:gravity="center"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:id="@+id/routeTime"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:layout_marginRight="@dimen/_16sdp"
+                            android:gravity="center"
+                            android:text=" 10m"
+                            android:textColor="@color/white" />
+
+                        <LinearLayout
+                            android:layout_width="@dimen/_260sdp"
+                            android:layout_height="@dimen/_1sdp"
+                            android:background="#ffffff" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="#000000"
+                        android:visibility="visible">
+
+                        <ImageView
+                            android:layout_width="@dimen/_24sdp"
+                            android:layout_height="@dimen/_24sdp"
+                            android:layout_gravity="center"
+                            android:layout_marginLeft="@dimen/_4sdp"
+                            android:layout_marginRight="@dimen/_8sdp"
+                            android:contentDescription="share your location"
+                            android:foreground="?attr/selectableItemBackground"
+                            android:padding="@dimen/_4sdp"
+                            android:src="@drawable/ic_compass"
+                            app:tint="#ffffff" />
+
+                        <TextView
+                            android:id="@+id/route_advice"
+                            android:layout_width="@dimen/_260sdp"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:paddingVertical="@dimen/_4sdp"
+                            android:text="Cautionary advice while traversing the route.\n\nImportant reference points to confirm your orientation.\n\nLandmark near your starting point.
+                    Landmark near your next decision point."
+                            android:textAlignment="viewStart"
+                            android:textColor="#ffffff"
+                            android:textSize="@dimen/_12sdp"
+                            android:textStyle="bold"
+                            tools:ignore="RtlCompat" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="@dimen/_260sdp"
+                        android:layout_height="@dimen/_1sdp"
+                        android:layout_gravity="right"
+                        android:layout_marginVertical="@dimen/_4sdp"
+                        android:background="#ffffff"
+                        android:gravity="center" />
+
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:id="@+id/save_location_modal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginHorizontal="@dimen/_20sdp"
+        android:background="@color/textbox_dark_background_color"
+        android:orientation="vertical"
+        android:paddingVertical="@dimen/_8sdp"
+        android:visibility="gone">
+
+        <ImageView
+            android:layout_width="@dimen/_24sdp"
+            android:layout_height="@dimen/_32sdp"
+            android:layout_gravity="center"
+            android:src="@drawable/ic_bookmark"
+            app:tint="#ffffff" />
+
+        <TextView
+            android:id="@+id/save_location_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginHorizontal="@dimen/_12sdp"
+            android:layout_marginVertical="@dimen/_4sdp"
+            android:text=""
+            android:textAlignment="center"
+            android:textColor="#fff"
+            android:textSize="@dimen/_12sdp" />
+
+        <TextView
+            android:id="@+id/saved_as"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginHorizontal="@dimen/_12sdp"
+            android:text="Save Location as?"
+            android:textAlignment="center"
+            android:textColor="#fff"
+            android:textSize="@dimen/_16sdp"
+            android:textStyle="bold"
+            android:visibility="visible" />
+
+        <TextView
+            android:id="@+id/save_success"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginHorizontal="@dimen/_12sdp"
+            android:text="Saved as Friend’s House!"
+            android:textAlignment="center"
+            android:textColor="@color/colorPrimary"
+            android:textSize="@dimen/_24sdp"
+            android:textStyle="bold"
+            android:visibility="gone" />
+
+        <LinearLayout
+            android:id="@+id/saveOption"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/_12sdp"
+            android:layout_marginTop="@dimen/_12sdp"
+            android:background="@drawable/border_white"
+            android:backgroundTint="#ffffff"
+            android:orientation="vertical"
+            android:visibility="visible">
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginBottom="@dimen/_4sdp"
+                app:cardCornerRadius="@dimen/_8sdp"
+                app:cardElevation="5dp">
+
+                <Button
+                    android:id="@+id/save_location_type_home"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_40sdp"
+                    android:background="@drawable/button_primary_layout"
+                    android:drawableLeft="@drawable/home"
+                    android:drawableTint="@color/white"
+                    android:paddingHorizontal="@dimen/_12sdp"
+                    android:text="Home Address"
+                    android:textColor="#ffffff"
+                    android:textSize="@dimen/_16sdp" />
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginBottom="@dimen/_4sdp"
+                app:cardCornerRadius="@dimen/_8sdp"
+                app:cardElevation="5dp">
+
+                <Button
+                    android:id="@+id/save_location_type_work"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_40sdp"
+                    android:background="@drawable/button_primary_layout"
+                    android:drawableLeft="@drawable/suitcase"
+                    android:drawableTint="@color/white"
+                    android:paddingHorizontal="@dimen/_12sdp"
+                    android:text="Work Address"
+                    android:textColor="#ffffff"
+                    android:textSize="@dimen/_16sdp" />
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                app:cardCornerRadius="@dimen/_8sdp"
+                app:cardElevation="5dp">
+
+                <Button
+                    android:id="@+id/save_location_type_custom"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_40sdp"
+                    android:background="@drawable/button_primary_layout"
+                    android:drawableLeft="@drawable/ic_bookmark"
+                    android:drawableTint="@color/white"
+                    android:paddingHorizontal="@dimen/_12sdp"
+                    android:text="Custom Address"
+                    android:textColor="#ffffff"
+                    android:textSize="@dimen/_16sdp" />
+            </androidx.cardview.widget.CardView>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/custom_save_option"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/_12sdp"
+            android:layout_marginTop="@dimen/_12sdp"
+            android:background="@drawable/border_white"
+            android:backgroundTint="#ffffff"
+            android:orientation="vertical"
+            android:visibility="gone">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_40sdp"
+                android:layout_gravity="center"
+                android:background="@drawable/border_white"
+                android:backgroundTint="@color/app_background_dark_color"
+                android:orientation="horizontal">
+
+                <EditText
+                    android:id="@+id/custom_save_option_text"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@color/app_background_dark_color"
+                    android:gravity="center|start"
+                    android:hint="Enter Custom Name"
+                    android:inputType="text"
+                    android:paddingLeft="@dimen/_8sdp"
+                    android:textColor="#ffffff"
+                    android:textSize="@dimen/_16sdp" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_60sdp"
+            android:layout_marginHorizontal="@dimen/_12sdp"
+            android:layout_marginTop="@dimen/_12sdp"
+            android:orientation="horizontal"
+            android:visibility="visible">
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="@dimen/_112sdp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginRight="@dimen/_8sdp"
+                android:layout_weight="1"
+                app:cardCornerRadius="@dimen/_8sdp"
+                app:cardElevation="5dp">
+
+                <Button
+                    android:id="@+id/save_location"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_64sdp"
+                    android:background="@drawable/button_color_layout"
+                    android:text="SAVE"
+                    android:textSize="@dimen/_24sdp"
+                    android:textStyle="bold" />
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="@dimen/_112sdp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginLeft="@dimen/_8sdp"
+                android:layout_weight="1"
+                app:cardCornerRadius="@dimen/_8sdp"
+                app:cardElevation="5dp">
+
+                <Button
+                    android:id="@+id/cancel_save_location"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_64sdp"
+                    android:background="@color/app_background_dark_color"
+                    android:text="Cancel"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/_16sdp"
+                    android:textStyle="bold" />
+            </androidx.cardview.widget.CardView>
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/report_problem_modal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:background="@color/app_background_dark_color"
+        android:orientation="vertical"
+        android:paddingVertical="@dimen/_16sdp"
+        android:visibility="gone">
+
+
+        <TextView
+            android:layout_width="@dimen/_200sdp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginBottom="@dimen/_4sdp"
+            android:drawableRight="@drawable/ic_baseline_close_32"
+            android:text="Report a Problem"
+            android:textAlignment="center"
+            android:textColor="#fff"
+            android:textSize="@dimen/_16sdp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/_12sdp"
+            android:layout_marginTop="@dimen/_12sdp"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="@dimen/_72sdp"
+                android:layout_height="@dimen/_72sdp"
+                android:layout_gravity="center"
+                android:layout_marginHorizontal="@dimen/_6sdp"
+                android:layout_marginBottom="@dimen/_4sdp"
+                app:cardCornerRadius="@dimen/_8sdp"
+                app:cardElevation="5dp">
+
+                <Button
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/button_primary_layout"
+                    android:backgroundTint="@color/textbox_dark_background_color"
+                    android:drawableTop="@drawable/ic_baseline_warning_32"
+                    android:drawableTint="@color/white"
+                    android:paddingTop="@dimen/_12sdp"
+                    android:text="Obstruction"
+                    android:textColor="#ffffff"
+                    android:textSize="@dimen/_10sdp" />
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="@dimen/_72sdp"
+                android:layout_height="@dimen/_72sdp"
+                android:layout_gravity="center"
+                android:layout_marginHorizontal="@dimen/_6sdp"
+                android:layout_marginBottom="@dimen/_4sdp"
+                app:cardCornerRadius="@dimen/_8sdp"
+                app:cardElevation="5dp">
+
+                <Button
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/button_primary_layout"
+                    android:backgroundTint="@color/textbox_dark_background_color"
+                    android:drawableTop="@drawable/ic_baseline_warning_32"
+                    android:drawableTint="@color/white"
+                    android:paddingTop="@dimen/_12sdp"
+                    android:text="Path Closed"
+                    android:textColor="#ffffff"
+                    android:textSize="@dimen/_10sdp" />
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="@dimen/_72sdp"
+                android:layout_height="@dimen/_72sdp"
+                android:layout_gravity="center"
+                android:layout_marginHorizontal="@dimen/_6sdp"
+                android:layout_marginBottom="@dimen/_4sdp"
+                app:cardCornerRadius="@dimen/_8sdp"
+                app:cardElevation="5dp">
+
+                <Button
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/button_primary_layout"
+                    android:backgroundTint="@color/textbox_dark_background_color"
+                    android:drawableTop="@drawable/ic_vector"
+                    android:drawableTint="@color/white"
+                    android:paddingTop="@dimen/_12sdp"
+                    android:text="Other"
+                    android:textColor="#ffffff"
+                    android:textSize="@dimen/_10sdp"
+                    android:visibility="visible" />
+            </androidx.cardview.widget.CardView>
+        </LinearLayout>
+
+        <EditText
+            android:id="@+id/description"
+            android:layout_width="@dimen/_240sdp"
+            android:layout_height="@dimen/_152sdp"
+            android:layout_gravity="center"
+            android:layout_marginVertical="@dimen/_12sdp"
+            android:background="@drawable/edit_text_border"
+            android:hint="Describe the Problem"
+            android:inputType="textMultiLine"
+            android:lines="8"
+            android:paddingHorizontal="@dimen/_8sdp"
+            android:scrollbars="horizontal"
+            android:textColor="#ffffff"
+            android:textColorHint="#ffffff"
+            android:textSize="@dimen/_16sdp" />
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/_12sdp"
+            android:orientation="vertical"
+            android:visibility="visible">
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="@dimen/_240sdp"
+                android:layout_height="@dimen/_64sdp"
+                android:layout_gravity="center"
+                android:layout_weight="1"
+                app:cardCornerRadius="@dimen/_8sdp"
+                app:cardElevation="5dp">
+
+                <Button
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_64sdp"
+                    android:background="@drawable/button_color_layout"
+                    android:drawableLeft="@drawable/ic_baseline_camera_alt_24"
+                    android:drawableTint="#000000"
+                    android:paddingLeft="@dimen/_20sdp"
+                    android:text="ADD PHOTO"
+                    android:textSize="@dimen/_24sdp"
+                    android:textStyle="bold" />
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="@dimen/_240sdp"
+                android:layout_height="@dimen/_64sdp"
+                android:layout_gravity="center"
+                android:layout_marginTop="@dimen/_8sdp"
+                android:layout_weight="1"
+                app:cardCornerRadius="@dimen/_8sdp"
+                app:cardElevation="5dp">
+
+                <Button
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_64sdp"
+                    android:background="@drawable/button_color_layout"
+                    android:text="SEND REPORT"
+                    android:textSize="@dimen/_24sdp"
+                    android:textStyle="bold" />
+            </androidx.cardview.widget.CardView>
+        </LinearLayout>
+
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:id="@+id/floorLevelLayoutContainer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center|left"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:id="@+id/floorLevelLayoutInfo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+        </LinearLayout>
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/_2sdp"
+            app:cardCornerRadius="@dimen/_5sdp"
+            app:cardElevation="0dp">
+
+            <LinearLayout
+                android:id="@+id/floorLevelLayout"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@color/textbox_dark_background_color"
+                android:orientation="vertical">
+
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+    </LinearLayout>
+
+    <FrameLayout
+        android:id="@+id/loadingView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="gone">
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/app_background_dark_color" />
+
+        <com.github.ybq.android.spinkit.SpinKitView
+            style="@style/SpinKitView.Wave"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            app:SpinKit_Color="@color/colorAccent" />
+    </FrameLayout>
+</FrameLayout>

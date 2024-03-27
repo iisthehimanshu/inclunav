@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:screenOrientation="portrait"
+
+    android:layout_height="match_parent"
+    tools:context=".activities.DashBoard">
+
+    <TextView
+        android:id="@+id/header_title"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_44sdp"
+        android:gravity="center"
+        android:background="@color/top_bar_color"
+        android:text="WELCOME"
+        android:textColor="#ffffff"
+        android:textSize="@dimen/_16sdp"/>
+
+    <TextView
+        android:id="@+id/settingsButton"
+        android:layout_width="@dimen/_24sdp"
+        android:layout_height="@dimen/_24sdp"
+        android:layout_gravity="right"
+        android:layout_marginTop="@dimen/_10sdp"
+        android:layout_marginRight="@dimen/_8sdp"
+        android:background="@drawable/ic_setting"
+        android:foreground="?attr/selectableItemBackground"
+        android:onClick="openSettings"
+        android:contentDescription="open Settings"
+        android:textColor="#00000000" />
+
+    <TextView
+        android:id="@+id/header_icon"
+        android:layout_width="@dimen/_32sdp"
+        android:layout_height="@dimen/_32sdp"
+        android:layout_gravity="left"
+        android:gravity="center"
+        android:textSize="@dimen/_18sdp"
+        android:textStyle="bold"
+        android:layout_marginTop="@dimen/_10sdp"
+        android:layout_marginLeft="@dimen/_8sdp"
+        android:background="@drawable/ic_person_white"
+        android:contentDescription="User Image Icon"
+        android:textColor="#000000"
+        tools:ignore="RtlCompat" />
+
+
+
+
+
+
+
+</FrameLayout>

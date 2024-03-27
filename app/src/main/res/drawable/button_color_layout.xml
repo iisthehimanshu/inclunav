@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content" android:layout_height="@dimen/_40sdp">
+    <item android:drawable="@color/white" android:state_pressed="true" /> <!-- pressed -->
+    <item android:drawable="@color/white" android:state_focused="true" /> <!-- focused -->
+    <item>
+        <shape>
+            <solid android:color="@color/colorPrimary" />
+            <corners android:radius="@dimen/_4sdp"/>
+        </shape>
+    </item> <!-- default -->
+</selector>

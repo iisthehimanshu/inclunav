@@ -1,0 +1,372 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    tools:context=".activities.NavigationSetting"
+    android:background="@color/top_bar_color">
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_44sdp"
+                android:gravity="center"
+                android:background="@color/top_bar_color"
+                android:text="NAVIGATION SETTINGS"
+                android:textColor="#ffffff"
+                android:textSize="@dimen/_14sdp"
+                android:textStyle="bold" />
+        </LinearLayout>
+        <TextView
+            android:layout_width="@dimen/_16sdp"
+            android:layout_height="@dimen/_26sdp"
+            android:layout_gravity="left"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:layout_marginLeft="@dimen/_8sdp"
+            android:background="@drawable/ic_back_arrow"
+            android:onClick="goBack"
+            android:contentDescription="go back"
+            android:textColor="#00000000" />
+        <LinearLayout
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="@dimen/_80sdp"
+            android:orientation="vertical"
+            android:layout_width="@dimen/_240sdp"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/_80sdp"
+            >
+            <TextView
+                android:layout_width="wrap_content"
+                android:textColor="#ffffff"
+                android:textSize="@dimen/_12sdp"
+                android:layout_marginTop="@dimen/_16sdp"
+                android:text="Please select a language"
+                android:layout_height="wrap_content" />
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="@dimen/_240sdp"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:layout_height="@dimen/_60sdp"
+                android:layout_weight="2">
+                <androidx.cardview.widget.CardView
+                    android:layout_gravity="center"
+                    app:cardCornerRadius="@dimen/_8sdp"
+                    android:layout_marginRight="@dimen/_8sdp"
+                    app:cardElevation="5dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1">
+                    <Button
+                        android:id="@+id/englishLang"
+                        android:background="@color/colorPrimary"
+                        android:layout_width="match_parent"
+                        android:text="ENGLISH"
+                        android:textStyle="bold"
+                        android:textSize="@dimen/_12sdp"
+                        android:layout_height="@dimen/_40sdp" />
+                </androidx.cardview.widget.CardView>
+
+                <androidx.cardview.widget.CardView
+                    android:layout_gravity="center"
+                    app:cardCornerRadius="@dimen/_8sdp"
+                    app:cardElevation="5dp"
+                    android:layout_marginLeft="@dimen/_8sdp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1">
+                    <Button
+                        android:id="@+id/hindiLang"
+                        android:background="@color/colorPrimary"
+                        android:layout_width="match_parent"
+                        android:text="हिन्दी"
+                        android:textStyle="bold"
+                        android:textSize="@dimen/_12sdp"
+                        android:layout_height="@dimen/_40sdp" />
+                </androidx.cardview.widget.CardView>
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_1sdp"
+                android:background="#ffffff"
+                android:layout_marginVertical="@dimen/_8sdp"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:textColor="#ffffff"
+                android:textSize="@dimen/_12sdp"
+                android:layout_marginTop="@dimen/_8sdp"
+                android:text="Please select your vision type"
+                android:layout_height="wrap_content" />
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="@dimen/_240sdp"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:layout_height="@dimen/_60sdp"
+                android:layout_weight="1">
+                <androidx.cardview.widget.CardView
+                    android:layout_gravity="center"
+                    app:cardCornerRadius="@dimen/_8sdp"
+                    android:layout_marginRight="@dimen/_4sdp"
+                    app:cardElevation="5dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1">
+                    <Button
+                        android:id="@+id/sighted"
+                        android:background="@color/colorPrimary"
+                        android:layout_width="match_parent"
+                        android:text="SIGHTED\nLOW VISION"
+                        android:textStyle="bold"
+                        android:textSize="@dimen/_12sdp"
+                        android:foreground="?attr/selectableItemBackground"
+                        android:layout_height="@dimen/_40sdp" />
+                </androidx.cardview.widget.CardView>
+                <androidx.cardview.widget.CardView
+                    android:layout_gravity="center"
+                    app:cardCornerRadius="@dimen/_8sdp"
+                    app:cardElevation="5dp"
+                    android:layout_marginLeft="@dimen/_4sdp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1">
+                    <Button
+                        android:id="@+id/blind"
+                        android:background="@color/colorPrimary"
+                        android:layout_width="match_parent"
+                        android:text="BLIND"
+                        android:textStyle="bold"
+                        android:textSize="@dimen/_12sdp"
+                        android:foreground="?attr/selectableItemBackground"
+                        android:layout_height="@dimen/_40sdp" />
+                </androidx.cardview.widget.CardView>
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_1sdp"
+                android:background="#ffffff"
+                android:layout_marginVertical="@dimen/_8sdp"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:textColor="#ffffff"
+                android:textSize="@dimen/_12sdp"
+                android:layout_marginTop="@dimen/_8sdp"
+                android:text="Please select your height group"
+                android:layout_height="wrap_content" />
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="@dimen/_240sdp"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:layout_height="@dimen/_60sdp"
+                android:layout_weight="3">
+                <androidx.cardview.widget.CardView
+                    android:layout_gravity="center"
+                    app:cardCornerRadius="@dimen/_8sdp"
+                    android:layout_marginRight="@dimen/_4sdp"
+                    app:cardElevation="5dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1">
+                    <Button
+                        android:id="@+id/lessThen5"
+                        android:background="@color/colorPrimary"
+                        android:layout_width="match_parent"
+                        android:text="&lt; 5 FEET"
+                        android:textStyle="bold"
+                        android:textSize="@dimen/_12sdp"
+                        android:foreground="?attr/selectableItemBackground"
+                        android:layout_height="@dimen/_40sdp" />
+                </androidx.cardview.widget.CardView>
+                <androidx.cardview.widget.CardView
+                    android:layout_gravity="center"
+                    app:cardCornerRadius="@dimen/_8sdp"
+                    app:cardElevation="5dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1">
+                    <Button
+                        android:id="@+id/btw5_6"
+                        android:background="@color/colorPrimary"
+                        android:layout_width="match_parent"
+                        android:text="5FT - 6FT"
+                        android:textStyle="bold"
+                        android:textSize="@dimen/_12sdp"
+                        android:foreground="?attr/selectableItemBackground"
+                        android:layout_height="@dimen/_40sdp" />
+                </androidx.cardview.widget.CardView>
+                <androidx.cardview.widget.CardView
+                    android:layout_gravity="center"
+                    app:cardCornerRadius="@dimen/_8sdp"
+                    app:cardElevation="5dp"
+                    android:layout_marginLeft="@dimen/_4sdp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1">
+                    <Button
+                        android:id="@+id/moreThen6"
+                        android:background="@color/colorPrimary"
+                        android:layout_width="match_parent"
+                        android:text="&gt; 6 FEET"
+                        android:textStyle="bold"
+                        android:textSize="@dimen/_12sdp"
+                        android:foreground="?attr/selectableItemBackground"
+                        android:layout_height="@dimen/_40sdp" />
+                </androidx.cardview.widget.CardView>
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_1sdp"
+                android:background="#ffffff"
+                android:layout_marginVertical="@dimen/_8sdp"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:textColor="#ffffff"
+                android:textSize="@dimen/_12sdp"
+                android:layout_marginTop="@dimen/_8sdp"
+                android:text="Please select your age group"
+                android:layout_height="wrap_content" />
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="@dimen/_240sdp"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:layout_height="@dimen/_60sdp"
+                android:layout_weight="3">
+                <androidx.cardview.widget.CardView
+                    android:layout_gravity="center"
+                    app:cardCornerRadius="@dimen/_8sdp"
+                    android:layout_marginRight="@dimen/_4sdp"
+                    app:cardElevation="5dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1">
+                    <Button
+                        android:id="@+id/adolescent"
+                        android:background="@color/colorPrimary"
+                        android:layout_width="match_parent"
+                        android:text="&lt; 18"
+                        android:textStyle="bold"
+                        android:textSize="@dimen/_12sdp"
+                        android:foreground="?attr/selectableItemBackground"
+                        android:layout_height="@dimen/_40sdp" />
+                </androidx.cardview.widget.CardView>
+                <androidx.cardview.widget.CardView
+                    android:layout_gravity="center"
+                    app:cardCornerRadius="@dimen/_8sdp"
+                    app:cardElevation="5dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1">
+                    <Button
+                        android:id="@+id/adult"
+                        android:background="@color/colorPrimary"
+                        android:layout_width="match_parent"
+                        android:text="18 - 60"
+                        android:textStyle="bold"
+                        android:textSize="@dimen/_12sdp"
+                        android:foreground="?attr/selectableItemBackground"
+                        android:layout_height="@dimen/_40sdp" />
+                </androidx.cardview.widget.CardView>
+                <androidx.cardview.widget.CardView
+                    android:layout_gravity="center"
+                    app:cardCornerRadius="@dimen/_8sdp"
+                    app:cardElevation="5dp"
+                    android:layout_marginLeft="@dimen/_4sdp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1">
+                    <Button
+                        android:id="@+id/seniorCitizen"
+                        android:background="@color/colorPrimary"
+                        android:layout_width="match_parent"
+                        android:text="&gt; 60"
+                        android:textStyle="bold"
+                        android:textSize="@dimen/_12sdp"
+                        android:foreground="?attr/selectableItemBackground"
+                        android:layout_height="@dimen/_40sdp" />
+                </androidx.cardview.widget.CardView>
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_1sdp"
+                android:background="#ffffff"
+                android:layout_marginVertical="@dimen/_8sdp"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:textColor="#ffffff"
+                android:textSize="@dimen/_12sdp"
+                android:layout_marginTop="@dimen/_8sdp"
+                android:text="Walking or wheelchair user"
+                android:layout_height="wrap_content" />
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="@dimen/_240sdp"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:layout_height="@dimen/_60sdp"
+                android:layout_weight="2">
+                <androidx.cardview.widget.CardView
+                    android:layout_gravity="center"
+                    app:cardCornerRadius="@dimen/_8sdp"
+                    android:layout_marginRight="@dimen/_8sdp"
+                    app:cardElevation="5dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@color/colorPrimary">
+                    <ImageButton
+                        android:id="@+id/walk"
+                        android:background="@color/colorPrimary"
+                        android:layout_width="@dimen/_108sdp"
+                        android:text="WALKING"
+                        android:src="@drawable/ic_walkable"
+                        android:textStyle="bold"
+                        android:textSize="@dimen/_12sdp"
+                        android:foreground="?attr/selectableItemBackground"
+                        android:layout_height="@dimen/_40sdp" />
+                </androidx.cardview.widget.CardView>
+
+                <androidx.cardview.widget.CardView
+                    android:layout_gravity="center"
+                    app:cardCornerRadius="@dimen/_8sdp"
+                    app:cardElevation="5dp"
+                    android:layout_marginLeft="@dimen/_8sdp"
+                    android:layout_width="@dimen/_108sdp"
+                    android:layout_height="@dimen/_40sdp">
+                    <ImageButton
+                        android:id="@+id/wheelChair"
+                        android:background="@color/colorPrimary"
+                        android:layout_width="@dimen/_108sdp"
+                        android:text="Wheelchair"
+                        android:src="@drawable/ic_wheel_chair"
+                        android:tint="#000000"
+                        android:textStyle="bold"
+                        android:textSize="@dimen/_12sdp"
+                        android:foreground="?attr/selectableItemBackground"
+                        android:layout_height="@dimen/_40sdp" />
+                </androidx.cardview.widget.CardView>
+            </LinearLayout>
+        </LinearLayout>
+    </FrameLayout>
+</ScrollView>

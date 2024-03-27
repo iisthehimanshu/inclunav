@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <TextView
+        android:id="@+id/floor_name"
+        android:gravity="bottom"
+        android:paddingLeft="2dp"
+        android:textColor="#000000"
+        android:text="floor name"
+        android:foreground="@drawable/border"
+        android:rotation="-90"
+        android:layout_width="200dp"
+        android:layout_height="200dp" />
+</LinearLayout>

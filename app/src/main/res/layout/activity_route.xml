@@ -1,0 +1,250 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mainContainer"
+    android:background="@color/app_background_dark_color"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:focusable="true"
+    android:focusableInTouchMode="true"
+    tools:ignore="MissingDefaultResource">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_44sdp"
+            android:gravity="center"
+            android:background="@color/app_background_dark_color"
+            android:text="ROUTE"
+            android:textColor="#ffffff"
+            android:textSize="@dimen/_16sdp"
+            android:textStyle="bold" />
+
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="@dimen/_16sdp"
+        android:layout_height="@dimen/_26sdp"
+        android:layout_gravity="left"
+        android:layout_marginTop="@dimen/_10sdp"
+        android:layout_marginLeft="@dimen/_8sdp"
+        android:background="@drawable/ic_back_arrow"
+        android:onClick="goBack"
+        android:textColor="#00000000" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginTop="@dimen/_44sdp"
+        android:background="#000000"
+        android:paddingHorizontal="@dimen/_12sdp">
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_40sdp"
+            android:layout_gravity="center"
+            android:gravity="center">
+
+            <ImageView
+                android:layout_width="@dimen/_28sdp"
+                android:layout_height="@dimen/_28sdp"
+                android:layout_gravity="center"
+                android:src="@drawable/ic_baseline_close_32"
+                app:tint="#ffffff" />
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_weight="1"
+                android:layout_gravity="center"
+                android:gravity="center">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:background="#000000"
+                    android:textColor="#ffffff"
+                    android:textColorHint="#ffffff"
+                    android:textSize="@dimen/_16sdp"
+                    android:text="00 hr 00 min (000 km)"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:background="#000000"
+                    android:textColor="#ffffff"
+                    android:textColorHint="#ffffff"
+                    android:textSize="@dimen/_12sdp"
+                    android:text="via Floor Connection"/>
+            </LinearLayout>
+            <ImageView
+                android:layout_width="@dimen/_24sdp"
+                android:layout_height="@dimen/_24sdp"
+                android:layout_gravity="center"
+                android:src="@drawable/ic_route"
+                app:tint="#ffffff" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:paddingTop="@dimen/_4sdp"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_40sdp"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:paddingHorizontal="@dimen/_12sdp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:background="#000000"
+                android:textColor="#ffffff"
+                android:textColorHint="#ffffff"
+                android:textSize="@dimen/_12sdp"
+                android:text="Room, Floor\nBuilding"/>
+            <ImageView
+                android:layout_width="@dimen/_24sdp"
+                android:layout_height="@dimen/_24sdp"
+                android:layout_gravity="center"
+                android:src="@drawable/ic_route"
+                android:layout_marginHorizontal="@dimen/_12sdp"
+                app:tint="#ffffff" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:background="#000000"
+                android:textColor="#ffffff"
+                android:textColorHint="#ffffff"
+                android:textSize="@dimen/_12sdp"
+                android:text="Room, Floor\nBuilding"/>
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_weight="1"
+            android:layout_height="@dimen/_36sdp"
+            android:text="Steps"
+            android:layout_gravity="left"
+            android:gravity="center"
+            android:textColor="#ffffff"
+            android:textSize="@dimen/_16sdp"
+            android:textStyle="bold"/>
+
+<!--        <LinearLayout-->
+<!--            android:id="@+id/recentMessageContainer"-->
+<!--            android:visibility="visible"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:background="#000000">-->
+
+<!--            <ImageView-->
+<!--                android:id="@+id/imageMsg"-->
+<!--                android:contentDescription="share your location"-->
+<!--                android:foreground="?attr/selectableItemBackground"-->
+<!--                android:padding="@dimen/_4sdp"-->
+<!--                android:scaleType="fitCenter"-->
+<!--                android:layout_width="@dimen/_24sdp"-->
+<!--                android:layout_marginLeft="@dimen/_4sdp"-->
+<!--                android:src="@drawable/straight"-->
+<!--                android:layout_gravity="center"-->
+<!--                android:layout_height="@dimen/_24sdp"-->
+<!--                android:layout_marginRight="@dimen/_8sdp"-->
+<!--                app:tint="#ffffff" />-->
+<!--            <TextView-->
+<!--                android:id="@+id/recentMessage"-->
+<!--                android:layout_width="@dimen/_260sdp"-->
+<!--                android:layout_height="@dimen/_36sdp"-->
+<!--                android:gravity="center"-->
+<!--                android:textAlignment="viewStart"-->
+<!--                android:paddingVertical="@dimen/_4sdp"-->
+<!--                android:text="Directions for left turn"-->
+<!--                android:textColor="#ffffff"-->
+<!--                android:textSize="@dimen/_12sdp"-->
+<!--                android:textStyle="bold"-->
+<!--                tools:ignore="RtlCompat" />-->
+<!--        </LinearLayout>-->
+
+<!--        <LinearLayout-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_gravity="center"-->
+<!--            android:gravity="center"-->
+<!--            android:orientation="horizontal">-->
+
+<!--            <TextView-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:text=" 10m"-->
+<!--                android:layout_marginRight="@dimen/_16sdp"-->
+<!--                android:textColor="@color/white"-->
+<!--                android:layout_gravity="center"-->
+<!--                android:gravity="center"-->
+<!--            />-->
+<!--            <LinearLayout-->
+<!--                android:layout_width="@dimen/_260sdp"-->
+<!--                android:layout_height="@dimen/_1sdp"-->
+<!--                android:background="#ffffff"/>-->
+<!--        </LinearLayout>-->
+
+<!--        <LinearLayout-->
+<!--            android:visibility="visible"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:background="#000000">-->
+
+<!--            <ImageView-->
+<!--                android:contentDescription="share your location"-->
+<!--                android:foreground="?attr/selectableItemBackground"-->
+<!--                android:padding="@dimen/_4sdp"-->
+<!--                android:layout_width="@dimen/_24sdp"-->
+<!--                android:layout_marginLeft="@dimen/_4sdp"-->
+<!--                android:src="@drawable/ic_compass"-->
+<!--                android:layout_gravity="center"-->
+<!--                android:layout_height="@dimen/_24sdp"-->
+<!--                android:layout_marginRight="@dimen/_8sdp"-->
+<!--                app:tint="#ffffff" />-->
+<!--            <TextView-->
+<!--                android:layout_width="@dimen/_260sdp"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:gravity="center"-->
+<!--                android:textAlignment="viewStart"-->
+<!--                android:paddingVertical="@dimen/_4sdp"-->
+<!--                android:text="Cautionary advice while traversing the route.\n\nImportant reference points to confirm your orientation.\n\nLandmark near your starting point.-->
+<!--                Landmark near your next decision point."-->
+<!--                android:textColor="#ffffff"-->
+<!--                android:textSize="@dimen/_12sdp"-->
+<!--                android:textStyle="bold"-->
+<!--                tools:ignore="RtlCompat" />-->
+<!--        </LinearLayout>-->
+
+<!--        <LinearLayout-->
+<!--            android:gravity="center"-->
+<!--            android:layout_marginVertical="@dimen/_4sdp"-->
+<!--            android:layout_gravity="right"-->
+<!--            android:layout_width="@dimen/_260sdp"-->
+<!--            android:layout_height="@dimen/_1sdp"-->
+<!--            android:background="#ffffff"/>-->
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/routeSteps"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/_8sdp"
+            android:layout_marginVertical="@dimen/_8sdp"
+            android:horizontalSpacing="@dimen/_12sdp"
+            android:verticalSpacing="@dimen/_4sdp">
+
+        </androidx.recyclerview.widget.RecyclerView>
+    </LinearLayout>
+
+</FrameLayout>

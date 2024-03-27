@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/landingPageView"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/new_ui_color">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <ImageView
+            android:layout_width="360dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:contentDescription="Welcome to Inclunav Routes, your personal indoor navigation system"
+            android:scaleType="fitCenter"
+            android:src="@drawable/logo_app"
+            android:layout_marginBottom="@dimen/_60sdp"/>
+
+        <LinearLayout
+            android:id="@+id/showStartBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:visibility="gone">
+            <androidx.cardview.widget.CardView
+                android:layout_gravity="center"
+                app:cardCornerRadius="@dimen/_8sdp"
+                app:cardElevation="5dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+                <Button
+                    android:id="@+id/startButton"
+                    android:onClick="gotologinPage"
+                    android:background="@drawable/customized_button_background"
+                    android:textColor="@color/new_ui_color"
+                    android:layout_width="@dimen/_240sdp"
+                    android:layout_height="@dimen/_64sdp"
+                    android:text="START\nशुरू करे"
+                    android:textSize="@dimen/_20sdp"
+                    android:textStyle="bold"
+                    android:foreground="?attr/selectableItemBackground"/>
+
+            </androidx.cardview.widget.CardView>
+        </LinearLayout>
+        <LinearLayout
+            android:id="@+id/showLanguageOption"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:visibility="visible">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="@dimen/_8sdp"
+                android:textColor="@color/black"
+                android:textSize="@dimen/_16sdp"
+                android:text="Choose your language"
+                android:layout_height="wrap_content" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_gravity="center"
+                android:textColor="@color/black"
+                android:textSize="@dimen/_16sdp"
+                android:text="अपनी भाषा चुनिए"
+
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_8sdp"/>
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_marginTop="@dimen/_18sdp"
+                android:layout_width="@dimen/_240sdp"
+                android:layout_height="wrap_content">
+                <androidx.cardview.widget.CardView
+                    android:layout_gravity="center"
+                    app:cardCornerRadius="@dimen/_8sdp"
+                    android:layout_marginRight="@dimen/_8sdp"
+                    app:cardElevation="5dp"
+                    android:layout_width="@dimen/_112sdp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1">
+                    <Button
+                        android:id="@+id/englishLang"
+                        android:background="@drawable/customized_button_background"
+                        android:textColor="@color/new_ui_color"
+                        android:layout_width="match_parent"
+                        android:text="ENGLISH"
+                        android:textStyle="bold"
+                        android:textSize="@dimen/_24sdp"
+                        android:layout_height="@dimen/_64sdp" />
+                </androidx.cardview.widget.CardView>
+
+                <androidx.cardview.widget.CardView
+                    android:layout_gravity="center"
+                    app:cardCornerRadius="@dimen/_8sdp"
+                    app:cardElevation="5dp"
+                    android:layout_marginLeft="@dimen/_8sdp"
+                    android:layout_width="@dimen/_112sdp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1">
+                    <Button
+                        android:id="@+id/hindiLang"
+                        android:background="@drawable/customized_button_background"
+                        android:textColor="@color/new_ui_color"
+                        android:layout_width="match_parent"
+                        android:text="हिन्दी"
+                        android:textStyle="bold"
+                        android:textSize="@dimen/_24sdp"
+                        android:layout_height="@dimen/_64sdp" />
+                </androidx.cardview.widget.CardView>
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+</FrameLayout>

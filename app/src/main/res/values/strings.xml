@@ -1,0 +1,60 @@
+<resources>
+    <string name="app_name">IWAY+</string>
+    <string name="server_base_url">http://inclunav.apps.iitd.ac.in/node/wayfinding/</string>
+    <string name="step_size">1.9685</string> <!--step size in feet-->
+    <string name="STATIC_URL">http://inclunav.apps.iitd.ac.in/static/</string>
+    <string name="register_user_url">https://maps.iwayplus.in/user/save</string>
+    <string name="server_client_id">892890595767-4dkjhigbq4jb7pnc3lv0n5il2u5bl0sr.apps.googleusercontent.com</string>
+    <string name="verify_mobile_otp">https://maps.iwayplus.in/user/otp/mobile/verify</string>
+    <string name="send_mobile_otp">https://maps.iwayplus.in/user/otp/mobile/send</string>
+    <string name="login_user_url">http://inclunav.apps.iitd.ac.in/node/wayfinding/v1/user-login</string>
+    <string name="user_detail_url">http://inclunav.apps.iitd.ac.in/node/wayfinding/v1/app/user-information</string>
+    <string name="user_portfolio_url">http://inclunav.apps.iitd.ac.in/node/wayfinding/v1/app/user-portfolio</string>
+    <string name="reset_password_url">https://inclunav.apps.iitd.ac.in/node/wayfinding/v1/app/password-reset</string>
+
+    <string name="save_location_url">http://inclunav.apps.iitd.ac.in/node/wayfinding/v1/app/save-location</string>
+    <string name="get_location_url">http://inclunav.apps.iitd.ac.in/node/wayfinding/v1/app/getSave-location</string>
+
+    <string name="report_url">http://inclunav.apps.iitd.ac.in/node/wayfinding/v1/app/report-problem</string>
+
+    <string name="update_language_url">http://inclunav.apps.iitd.ac.in/node/wayfinding/v1/app/language-update</string>
+    <string name="update_vision_url">http://inclunav.apps.iitd.ac.in/node/wayfinding/v1/app/vision-update</string>
+    <string name="update_navigation_mode_url">http://inclunav.apps.iitd.ac.in/node/wayfinding/v1/app/walking-update</string>
+    <string name="update_age_url">http://inclunav.apps.iitd.ac.in/node/wayfinding/v1/app/age-update</string>
+    <string name="update_height_url">http://inclunav.apps.iitd.ac.in/node/wayfinding/v1/app/height-update</string>
+
+    <string name="name_update_url">http://inclunav.apps.iitd.ac.in/node/wayfinding/v1/app/name-update</string>
+    <string name="email_update_url">http://inclunav.apps.iitd.ac.in/node/wayfinding/v1/app/password-reset</string>
+
+    <string name="project_page">https://maps.iwayplus.in/</string>
+    <string name="feedback_page">http://surveyheart.com/form/5f4c05c7cb48e936ac3afb14</string>
+    <string name="webapp">https://maps.iwayplus.in/innav/</string>
+    <string name="access_info">https://ors.gov.in/index.html</string>
+    <string name="title_activity_venue_building_selection">VenueBuildingSelection</string>
+    <!-- Strings used for fragments for navigation -->
+    <string name="first_fragment_label">First Fragment</string>
+    <string name="second_fragment_label">Second Fragment</string>
+    <string name="next">Next</string>
+    <string name="previous">Previous</string>
+
+    <string name="hello_first_fragment">Hello first fragment</string>
+    <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
+    <string name="countryCode">91</string>
+    <string name="login">Login</string>
+    <string name="welcome_to_iwayplus">Welcome to Iwayplus</string>
+    <string name="enter_mobile_number">Enter mobile no.</string>
+    <string name="mobile_number">Mobile Number</string>
+    <string name="sign_in">SIGN IN</string>
+    <string name="send_otp">SEND OTP</string>
+    <string name="or">OR</string>
+    <string name="log_term_con">By logging in, you agree to our Terms &amp; Conditions.</string>
+    <string name="terms_and_condition">Terms and condition</string>
+    <string name="submit_otp">SUBMIT OTP</string>
+    <string name="privacy_policy">Privacy policy</string>
+    <string name="hi">hi</string>
+    <string name="swap">swap locations</string>
+    <string name="building_name">Building Name</string>
+    <string name="venue_name">Venue name</string>
+    <string name="your_distance_from_the_building">your distance from the building</string>
+    <string name="you_can_use_this_building_offline">You can use this building offline</string>
+</resources>

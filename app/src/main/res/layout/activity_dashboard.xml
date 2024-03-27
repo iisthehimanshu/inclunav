@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:screenOrientation="portrait"
+    android:background="@drawable/map"
+    android:layout_height="match_parent"
+    tools:context=".activities.DashBoard">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/header_title"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_44sdp"
+            android:gravity="center"
+            android:background="@color/top_bar_color"
+            android:text="WELCOME"
+            android:textColor="#ffffff"
+            android:textSize="@dimen/_16sdp"/>
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@color/top_bar_color"
+            android:orientation="horizontal"
+            android:visibility="gone">
+            <TextView
+                android:id="@+id/currentlocation"
+                android:layout_weight="2"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_44sdp"
+                android:gravity="center|left"
+                android:text="Location not found. Please reload your location services"
+                android:textColor="@color/error"
+                android:drawableLeft="@drawable/ic_location"
+                android:drawablePadding="@dimen/_16sdp"
+                android:paddingLeft="@dimen/_4sdp"
+                android:textSize="@dimen/_12sdp"/>
+
+            <ImageButton
+                android:layout_width="@dimen/_24sdp"
+                android:layout_height="@dimen/_24sdp"
+                android:layout_gravity="center"
+                android:layout_marginHorizontal="@dimen/_4sdp"
+                android:background="@color/top_bar_color"
+                android:padding="@dimen/_4sdp"
+                android:onClick="share"
+                android:src="@drawable/ic_share" />
+        </LinearLayout>
+    </LinearLayout>
+
+<!--    <LinearLayout-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="match_parent"-->
+<!--        android:layout_marginTop="@dimen/_88sdp"-->
+<!--        tools:ignore="MissingClass">-->
+<!--        <fragment xmlns:android="http://schemas.android.com/apk/res/android"-->
+<!--            xmlns:tools="http://schemas.android.com/tools"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="match_parent"-->
+<!--            android:id="@+id/map"-->
+<!--            tools:context=".MapsActivity"-->
+<!--            android:name="com.google.android.gms.maps.SupportMapFragment" />-->
+<!--    </LinearLayout>-->
+
+    <TextView
+        android:id="@+id/settingsButton"
+        android:layout_width="@dimen/_24sdp"
+        android:layout_height="@dimen/_24sdp"
+        android:layout_gravity="right"
+        android:layout_marginTop="@dimen/_10sdp"
+        android:layout_marginRight="@dimen/_8sdp"
+        android:background="@drawable/ic_setting"
+        android:foreground="?attr/selectableItemBackground"
+        android:onClick="openSettings"
+        android:contentDescription="open Settings"
+        android:textColor="#00000000" />
+
+    <TextView
+        android:id="@+id/header_icon"
+        android:layout_width="@dimen/_32sdp"
+        android:layout_height="@dimen/_32sdp"
+        android:layout_gravity="left"
+        android:gravity="center"
+        android:textSize="@dimen/_18sdp"
+        android:textStyle="bold"
+        android:layout_marginTop="@dimen/_10sdp"
+        android:layout_marginLeft="@dimen/_8sdp"
+        android:background="@drawable/ic_person_white"
+        android:contentDescription="User Image Icon"
+        android:textColor="#000000"
+        tools:ignore="RtlCompat" />
+
+    <View
+        android:id="@+id/invisibleView"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:visibility="visible"
+        android:contentDescription="Description for TalkBack"
+        />
+
+
+
+    <LinearLayout
+        android:layout_gravity="center"
+        android:orientation="vertical"
+        android:layout_width="@dimen/_200sdp"
+        android:layout_height="wrap_content">
+
+        <androidx.cardview.widget.CardView
+            android:layout_gravity="center"
+            app:cardCornerRadius="@dimen/_8sdp"
+            app:cardElevation="5dp"
+            android:layout_width="fill_parent"
+            android:layout_marginBottom="@dimen/_8sdp"
+            android:layout_height="wrap_content">
+
+            <Button
+                android:id="@+id/navigate"
+                android:layout_width="fill_parent"
+                android:layout_height="@dimen/_64sdp"
+                android:background="@drawable/button_color_layout"
+                android:drawableLeft="@drawable/ic_compass"
+                android:paddingLeft="@dimen/_20sdp"
+                android:drawableTint="#000000"
+                android:foreground="?attr/selectableItemBackground"
+                android:text="EMPOWER MAP"
+                android:textStyle="bold"
+                android:textSize="@dimen/_24sdp" />
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:layout_gravity="center"
+            app:cardCornerRadius="@dimen/_8sdp"
+            app:cardElevation="5dp"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content">
+
+            <Button
+                android:id="@+id/explore"
+                android:layout_width="fill_parent"
+                android:layout_height="@dimen/_64sdp"
+                android:background="@drawable/button_color_layout"
+                android:drawableTint="#000000"
+                android:foreground="?attr/selectableItemBackground"
+                android:text="EMPOWER 2023 EVENT"
+                android:textAlignment="center"
+                android:textStyle="bold"
+                android:textSize="@dimen/_24sdp" />
+        </androidx.cardview.widget.CardView>
+
+<!--        <androidx.cardview.widget.CardView-->
+<!--            android:layout_gravity="center"-->
+<!--            app:cardCornerRadius="@dimen/_8sdp"-->
+<!--            app:cardElevation="5dp"-->
+<!--            android:layout_width="fill_parent"-->
+<!--            android:layout_height="wrap_content">-->
+
+<!--            <Button-->
+<!--                android:id="@+id/locationInfo"-->
+<!--                android:layout_width="fill_parent"-->
+<!--                android:layout_height="@dimen/_64sdp"-->
+<!--                android:background="@drawable/button_color_layout"-->
+<!--                android:drawableLeft="@drawable/ic_location_information"-->
+<!--                android:paddingLeft="@dimen/_20sdp"-->
+<!--                android:drawableTint="#000000"-->
+<!--                android:foreground="?attr/selectableItemBackground"-->
+<!--                android:text="Location\nInformation"-->
+<!--                android:textStyle="bold"-->
+<!--                android:textSize="@dimen/_16sdp" />-->
+<!--        </androidx.cardview.widget.CardView>-->
+
+    </LinearLayout>
+
+</FrameLayout>

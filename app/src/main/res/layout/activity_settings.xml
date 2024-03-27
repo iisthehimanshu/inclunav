@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/top_bar_color"
+    tools:context=".activities.SettingsActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_44sdp"
+            android:gravity="center"
+            android:background="@color/top_bar_color"
+            android:text="SETTINGS"
+            android:textColor="#ffffff"
+            android:textSize="@dimen/_14sdp" />
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/backButton"
+        android:layout_width="@dimen/_16sdp"
+        android:layout_height="@dimen/_26sdp"
+        android:layout_gravity="left"
+        android:layout_marginTop="@dimen/_10sdp"
+        android:layout_marginLeft="@dimen/_8sdp"
+        android:background="@drawable/ic_back_arrow"
+        android:onClick="goBack"
+        android:contentDescription="go back"
+        android:textColor="#00000000" />
+
+
+    <LinearLayout
+        android:layout_gravity="center"
+        android:orientation="vertical"
+        android:layout_width="@dimen/_240sdp"
+        android:layout_height="wrap_content"
+        >
+
+        <androidx.cardview.widget.CardView
+            android:layout_gravity="center"
+            app:cardCornerRadius="@dimen/_8sdp"
+            android:layout_marginTop="@dimen/_8sdp"
+            app:cardElevation="5dp"
+            android:layout_width="fill_parent"
+            android:layout_marginBottom="@dimen/_12sdp"
+            android:layout_height="wrap_content">
+
+            <Button
+                android:layout_width="fill_parent"
+                android:layout_height="@dimen/_64sdp"
+                android:background="@drawable/button_color_layout"
+                android:drawableLeft="@drawable/ic_user"
+                android:paddingLeft="@dimen/_20sdp"
+                android:drawableTint="#000000"
+                android:foreground="?attr/selectableItemBackground"
+                android:text="Profile Settings"
+                android:textFontWeight="2"
+                android:onClick="goProfileSetting"
+                android:textSize="@dimen/_16sdp" />
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:layout_gravity="center"
+            app:cardCornerRadius="@dimen/_8sdp"
+            android:layout_marginTop="@dimen/_8sdp"
+            app:cardElevation="5dp"
+            android:layout_width="fill_parent"
+            android:layout_marginBottom="@dimen/_12sdp"
+            android:layout_height="wrap_content">
+
+            <Button
+                android:layout_width="fill_parent"
+                android:layout_height="@dimen/_64sdp"
+                android:background="@drawable/button_color_layout"
+                android:drawableLeft="@drawable/ic_compass"
+                android:paddingLeft="@dimen/_20sdp"
+                android:drawableTint="#000000"
+                android:foreground="?attr/selectableItemBackground"
+                android:text="Navigation Settings"
+                android:onClick="goNavigationSetting"
+                android:textFontWeight="2"
+                android:textSize="@dimen/_16sdp" />
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:layout_gravity="center"
+            app:cardCornerRadius="@dimen/_8sdp"
+            android:layout_marginTop="@dimen/_8sdp"
+            app:cardElevation="5dp"
+            android:layout_width="fill_parent"
+            android:layout_marginBottom="@dimen/_12sdp"
+            android:layout_height="wrap_content">
+
+            <Button
+                android:id="@+id/logout"
+                android:onClick="logout"
+                android:layout_width="fill_parent"
+                android:layout_height="@dimen/_64sdp"
+                android:background="#000000"
+                android:foreground="?attr/selectableItemBackground"
+                android:text="LOGOUT"
+                android:textColor="#ffffff"
+                android:textFontWeight="2"
+                android:textSize="@dimen/_16sdp" />
+        </androidx.cardview.widget.CardView>
+
+    </LinearLayout>
+
+</FrameLayout>

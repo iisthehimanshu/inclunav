@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+<!--    <org.osmdroid.views.MapView-->
+<!--        android:id="@+id/mapView"-->
+<!--        android:scaleType="fitXY"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="match_parent"-->
+<!--        />-->
+    <com.inclunav.iwayplus.layout_utilities.ZoomRotationFrameLayout
+        android:id="@+id/zoomlayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/imageCanvas"
+            android:scaleType="fitXY"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            />
+        <com.inclunav.iwayplus.layout_utilities.CanvasView
+            android:id="@+id/mapCanvas"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            />
+    </com.inclunav.iwayplus.layout_utilities.ZoomRotationFrameLayout>
+
+    <LinearLayout
+        android:id="@+id/rotationEnabledInfoView"
+        android:orientation="horizontal"
+        android:visibility="invisible"
+        android:background="#33EFE62D"
+        android:gravity="center"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <TextView
+            android:text="Tap "
+            android:textSize="@dimen/_20sdp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+        <ImageView
+            android:alpha="0.5"
+            android:layout_width="@dimen/_40sdp"
+            android:src="@drawable/reset"
+            android:layout_height="@dimen/_40sdp" />
+        <TextView
+            android:text=" to resume"
+            android:textSize="@dimen/_20sdp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+    </LinearLayout>
+
+
+</FrameLayout>

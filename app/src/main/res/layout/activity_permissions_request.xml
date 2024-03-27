@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:background="@color/white"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".activities.PermissionsRequestActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/settingsButton"
+            android:layout_width="@dimen/_16sdp"
+            android:layout_height="@dimen/_26sdp"
+            android:layout_gravity="left"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:layout_marginLeft="@dimen/_8sdp"
+            android:background="@drawable/ic_back"
+            android:onClick="goBack"
+            android:contentDescription="go back"
+            android:textColor="#00000000" />
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:textSize="@dimen/_16sdp"
+                android:lineHeight="@dimen/_24sdp"
+                android:textColor="@color/off_black"
+                android:padding="@dimen/_8sdp"
+                android:layout_marginTop="@dimen/_24sdp"
+                android:layout_marginHorizontal="@dimen/_12sdp"
+                android:gravity="center"
+                android:text="This application uses GPS and Bluetooth for navigation and geolocation purposes. Please enable Bluetooth and GPS services to continue."
+                android:layout_height="wrap_content" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_marginTop="@dimen/_128sdp"
+            android:layout_width="match_parent"
+            android:orientation="horizontal"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:layout_height="@dimen/_40sdp">
+            <ImageView
+                android:layout_width="@dimen/_26sdp"
+                android:src="@drawable/ic_compass"
+                android:layout_height="@dimen/_32sdp" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="."
+                android:textStyle="bold"
+                android:textSize="@dimen/_32sdp"
+                android:textColor="#fff"
+                android:layout_marginHorizontal="@dimen/_16sdp"/>
+            <ImageView
+                android:layout_width="@dimen/_32sdp"
+                android:src="@drawable/ic_baseline_bluetooth"
+                android:layout_height="@dimen/_32sdp" />
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/agreeButton"
+            android:layout_width="fill_parent"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:layout_height="@dimen/_34sdp"
+            android:background="@drawable/offwhite_button_color_layout"
+            android:foreground="?attr/selectableItemBackground"
+            android:onClick="agree"
+            android:text="Allow Bluetooth and GPS"
+            android:backgroundTint="@color/new_ui_color"
+            android:textSize="@dimen/_14sdp"
+            android:layout_margin="23dp"
+            android:textFontWeight="2"/>
+    </LinearLayout>
+
+
+
+
+</FrameLayout>

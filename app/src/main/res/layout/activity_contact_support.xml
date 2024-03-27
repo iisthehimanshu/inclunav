@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/app_background_dark_color"
+    tools:context=".activities.ContactSupport">
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_44sdp"
+                android:gravity="center"
+                android:background="@color/top_bar_color"
+                android:text="CONTACT SUPPORT"
+                android:textColor="#ffffff"
+                android:textSize="@dimen/_16sdp"/>
+
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/settingsButton"
+            android:layout_width="@dimen/_16sdp"
+            android:layout_height="@dimen/_26sdp"
+            android:layout_gravity="left"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:layout_marginLeft="@dimen/_8sdp"
+            android:background="@drawable/ic_back_arrow"
+            android:onClick="goBack"
+            android:contentDescription="go back"
+            android:textColor="#00000000" />
+
+        <LinearLayout
+            android:layout_gravity="center"
+            android:layout_marginTop="@dimen/_44sdp"
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/_40sdp">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_gravity="center"
+                android:textColor="#ffffff"
+                android:textSize="@dimen/_16sdp"
+                android:lineHeight="@dimen/_24sdp"
+                android:text="In case of any grievance or to report a problem, please fill up this form and we will contact you within 48 hours."
+                android:layout_height="wrap_content" />
+
+            <androidx.cardview.widget.CardView
+                android:layout_gravity="center"
+                android:layout_marginTop="@dimen/_8sdp"
+                app:cardCornerRadius="@dimen/_8sdp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <EditText
+                    android:id="@+id/name"
+                    android:paddingHorizontal="@dimen/_8sdp"
+                    android:layout_gravity="center_horizontal"
+                    android:background="@drawable/edit_text_border"
+                    android:inputType="number"
+                    android:layout_width="match_parent"
+                    android:hint="Name"
+                    android:textSize="@dimen/_16sdp"
+                    android:textColor="#ffffff"
+                    android:textColorHint="#ffffff"
+                    android:layout_height="@dimen/_40sdp" />
+            </androidx.cardview.widget.CardView>
+            <androidx.cardview.widget.CardView
+                android:layout_gravity="center"
+                android:layout_marginTop="@dimen/_8sdp"
+                app:cardCornerRadius="@dimen/_8sdp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <EditText
+                    android:id="@+id/userMobile"
+                    android:paddingHorizontal="@dimen/_8sdp"
+                    android:layout_gravity="center_horizontal"
+                    android:background="@drawable/edit_text_border"
+                    android:inputType="number"
+                    android:layout_width="match_parent"
+                    android:hint="Mobile No."
+                    android:textSize="@dimen/_16sdp"
+                    android:textColor="#ffffff"
+                    android:textColorHint="#ffffff"
+                    android:layout_height="@dimen/_40sdp" />
+            </androidx.cardview.widget.CardView>
+            <androidx.cardview.widget.CardView
+                android:layout_gravity="center"
+                android:layout_marginTop="@dimen/_8sdp"
+                app:cardCornerRadius="@dimen/_8sdp"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_80sdp">
+                <EditText
+                    android:id="@+id/description"
+                    android:layout_gravity="top"
+                    android:paddingHorizontal="@dimen/_8sdp"
+                    android:background="@drawable/edit_text_border"
+                    android:lines="8"
+                    android:inputType="textMultiLine"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:hint="Description"
+                    android:textSize="@dimen/_16sdp"
+                    android:textColor="#ffffff"
+                    android:textColorHint="#ffffff"
+                    android:scrollbars="horizontal"/>
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:layout_gravity="center"
+                app:cardCornerRadius="@dimen/_8sdp"
+                android:layout_marginTop="@dimen/_8sdp"
+                app:cardElevation="5dp"
+                android:layout_width="fill_parent"
+                android:layout_marginBottom="@dimen/_12sdp"
+                android:layout_height="wrap_content">
+                <Button
+                    android:id="@+id/submitContactSupport"
+                    android:background="@drawable/button_color_layout"
+                    android:layout_width="@dimen/_240sdp"
+                    android:text="SUBMIT"
+                    android:textSize="@dimen/_24sdp"
+                    android:textStyle="bold"
+                    android:foreground="?attr/selectableItemBackground"
+                    android:layout_height="@dimen/_64sdp" />
+            </androidx.cardview.widget.CardView>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_2sdp"
+                android:background="#ffffff"
+                />
+
+            <TextView
+                android:id="@+id/forgotPassword"
+                android:layout_width="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="@dimen/_8sdp"
+                android:layout_marginBottom="@dimen/_8sdp"
+                android:textColor="#ffffff"
+                android:textSize="@dimen/_16sdp"
+                android:lineHeight="@dimen/_24sdp"
+                android:text="Alternatively, you can call us for any product related emergency using the CONTACT button. "
+                android:layout_height="wrap_content" />
+            <androidx.cardview.widget.CardView
+                android:layout_gravity="center"
+                app:cardCornerRadius="@dimen/_8sdp"
+                app:cardElevation="5dp"
+                android:layout_width="fill_parent"
+                android:layout_marginBottom="@dimen/_12sdp"
+                android:layout_height="wrap_content">
+                <Button
+                    android:id="@+id/contact"
+                    android:background="@drawable/button_color_layout"
+                    android:layout_width="@dimen/_240sdp"
+                    android:text="CONTACT"
+                    android:textSize="@dimen/_24sdp"
+                    android:textStyle="bold"
+                    android:foreground="?attr/selectableItemBackground"
+                    android:layout_height="@dimen/_64sdp" />
+            </androidx.cardview.widget.CardView>
+
+        </LinearLayout>
+    </FrameLayout>
+</ScrollView>
