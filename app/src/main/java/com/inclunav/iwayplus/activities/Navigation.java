@@ -424,7 +424,6 @@ public class Navigation extends AppCompatActivity implements SensorEventListener
                         }
                     } else {
                         Log.e("when", " ");
-
                     }
                 } catch (Exception e) {
                     Log.e("Exception", e.getMessage());
@@ -2151,6 +2150,8 @@ public class Navigation extends AppCompatActivity implements SensorEventListener
                     String floorOfBeacon = beaconWeightsSorted.size() > 0 ? beaconObj.getFloorOfBeacon(beaconWeightsSorted.get(0).first) : "";
                     Log.d("Average Beacon Weight", String.valueOf(ABW));
 
+
+
                     if (ABW >= MIN_BEACON_RECOGNITION_CONST) {
                         if (floorOfBeacon.equals(currLocation.getFloor())) {
                             debugView.append(ABW + "\n");
@@ -2336,7 +2337,8 @@ public class Navigation extends AppCompatActivity implements SensorEventListener
 //                            double[] nid = nearest_point_index_and_distance(currFloorObj.getPath(),beaconCoord.x*currFloorObj.getGpx(),beaconCoord.y*currFloorObj.getGpy(),currFloorObj);
                             double[] nid = nearest_point_details(currFloorObj.getPath(), beaconCoord.x * currFloorObj.getGpx(), beaconCoord.y * currFloorObj.getGpy(), currFloorObj);
 
-
+                            //BEACON_NEAR_PATH_DIST it is the threshold value to check whether to update the location of,
+                            //the user with nearest distance.
                             if (nid[1] <= BEACON_NEAR_PATH_DIST) {
                                 if (
                                         lastLocalized.getGridX() != beaconCoord.x ||

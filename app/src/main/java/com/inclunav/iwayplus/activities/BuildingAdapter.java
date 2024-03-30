@@ -111,7 +111,8 @@ public class BuildingAdapter extends RecyclerView.Adapter<BuildingAdapter.ViewHo
         String distance = buildingData.get("distance") + " m";
         holder.distance.setText(distance);
         holder.distance.setContentDescription(distance + "meters");
-        Picasso.get().load("https://dev.iwayplus.in/uploads/"+buildingData.get("photo")).into(holder.buildingImageView);
+
+        //Picasso.get().load("https://dev.iwayplus.in/uploads/"+buildingData.get("photo")).into(holder.buildingImageView);
         holder.downloadicon.setVisibility(View.VISIBLE);
         holder.updatebuilding.setContentDescription("update data for " + buildingData.get("buildingName") );
         holder.download.setContentDescription("download data for " + buildingData.get("buildingName") );
@@ -138,9 +139,12 @@ public class BuildingAdapter extends RecyclerView.Adapter<BuildingAdapter.ViewHo
         holder.download.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                Log.d("entered", "downloading building data");
                 Toast.makeText(v.getContext(), "Downloading data for " + buildingData.get("buildingName"), Toast.LENGTH_SHORT).show();
                 Log.d("roomdbb", "onClick: ");
-                String apiUrl = "https://inclunav.apps.iitd.ac.in/node/wayfinding/v1/app/android-navigation/"+initialVenueName+"/"+initialBuildingName+"/"+"null";
+                String apiUrl =
+                        //"https://inclunav.apps.iitd.ac.in/node/wayfinding/v1/app/android-navigation/ResearchPark/ResearchParkMain/null";
+                        "https://inclunav.apps.iitd.ac.in/node/wayfinding/v1/app/android-navigation/"+initialVenueName+"/"+initialBuildingName+"/"+"null";
                 apifetcher obj = new apifetcher(apiUrl,initialBuildingName, holder, v, context);
                 obj.start();
 
@@ -149,9 +153,13 @@ public class BuildingAdapter extends RecyclerView.Adapter<BuildingAdapter.ViewHo
         holder.updatebuilding.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
+                Log.d("entered", "updating building data");
                 Toast.makeText(v.getContext(), "Updating data for " + buildingData.get("buildingName"), Toast.LENGTH_SHORT).show();
                 Log.d("roomdbb", "onClick: ");
-                String apiUrl = "https://inclunav.apps.iitd.ac.in/node/wayfinding/v1/app/android-navigation/"+initialVenueName+"/"+initialBuildingName+"/"+"null";
+                String apiUrl =
+                        //"https://inclunav.apps.iitd.ac.in/node/wayfinding/v1/app/android-navigation/ResearchPark/ResearchParkMain/null";
+                        "https://inclunav.apps.iitd.ac.in/node/wayfinding/v1/app/android-navigation/"+initialVenueName+"/"+initialBuildingName+"/"+"null";
                 apifetcher obj = new apifetcher(apiUrl,initialBuildingName, holder, v, context);
                 obj.start();
 

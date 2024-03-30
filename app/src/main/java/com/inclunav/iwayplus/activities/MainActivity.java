@@ -173,6 +173,7 @@ public class MainActivity extends AppCompatActivity implements LocationHelper.Lo
         if(NewDashboard.MyHttpPostTask.haversineDistance(NewDashboard.userlatt,NewDashboard.userlongg,latitude,longitude) > 500){
             NewDashboard.userlatt = latitude;
             NewDashboard.userlongg = longitude;
+            Log.d("lat","latitude");
             updateDistancesAndData();
             buildingDataList.clear();
             buildingDataList.addAll(NewDashboard.NewBuildingData);
@@ -226,6 +227,7 @@ public class MainActivity extends AppCompatActivity implements LocationHelper.Lo
     protected void onStop() {
         super.onStop();
         locationHelper.stopLocationUpdates();
+
     }
 
     public void openSettings(View view) {

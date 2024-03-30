@@ -1,6 +1,6 @@
 <resources>
     <string name="app_name">IWAY+</string>
-    <string name="server_base_url">http://inclunav.apps.iitd.ac.in/node/wayfinding/</string>
+    <string name="server_base_url">https://dev.iwayplus.in/secured/building/beacons</string>
     <string name="step_size">1.9685</string> <!--step size in feet-->
     <string name="STATIC_URL">http://inclunav.apps.iitd.ac.in/static/</string>
     <string name="register_user_url">https://maps.iwayplus.in/user/save</string>

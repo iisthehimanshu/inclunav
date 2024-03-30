@@ -38,7 +38,7 @@ public class SensorFilter {
         float[] retval = new float[a.length];
         float norm = norm(a);
         for (int i = 0; i < a.length; i++) {
-            retval[i] = a[i] / norm;
+            a[i] = a[i] / norm;
         }
         return retval;
     }

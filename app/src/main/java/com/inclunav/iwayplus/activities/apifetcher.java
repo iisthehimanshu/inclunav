@@ -66,6 +66,7 @@ class apifetcher extends Thread {
 
         try {
             Response response = client.newCall(request).execute();
+//            Log.println(MIN_PRIORITY,'API CALL',response);
             if (response.isSuccessful()) {
                 String responsedata = response.body().string();
                 BuildingDataEntity entity = new BuildingDataEntity();
