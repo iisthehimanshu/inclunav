@@ -1,8 +1,8 @@
 <resources>
     <string name="app_name">IWAY+</string>
-    <string name="server_base_url">https://dev.iwayplus.in/secured/building/beacons</string>
+    <string name="server_base_url">https://annotation.iwayplus.in/</string>
     <string name="step_size">1.9685</string> <!--step size in feet-->
-    <string name="STATIC_URL">http://inclunav.apps.iitd.ac.in/static/</string>
+    <string name="STATIC_URL">https://annotation.iwayplus.in/static/</string>
     <string name="register_user_url">https://maps.iwayplus.in/user/save</string>
     <string name="server_client_id">892890595767-4dkjhigbq4jb7pnc3lv0n5il2u5bl0sr.apps.googleusercontent.com</string>
     <string name="verify_mobile_otp">https://maps.iwayplus.in/user/otp/mobile/verify</string>

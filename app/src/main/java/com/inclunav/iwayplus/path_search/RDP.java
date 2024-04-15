@@ -22,7 +22,7 @@ public class RDP {
         }
     }
 
-    private static ArrayList<Point> rdp(List<Point> points, double epsilon){
+    private static ArrayList<Point>  rdp(List<Point> points, double epsilon){
         double dmax = 0.0;
         int index = 0;
         for(int i=0; i<points.size()-1; i++){

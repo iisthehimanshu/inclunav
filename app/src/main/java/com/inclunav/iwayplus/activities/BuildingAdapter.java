@@ -144,7 +144,7 @@ public class BuildingAdapter extends RecyclerView.Adapter<BuildingAdapter.ViewHo
                 Log.d("roomdbb", "onClick: ");
                 String apiUrl =
                         //"https://inclunav.apps.iitd.ac.in/node/wayfinding/v1/app/android-navigation/ResearchPark/ResearchParkMain/null";
-                        "https://inclunav.apps.iitd.ac.in/node/wayfinding/v1/app/android-navigation/"+initialVenueName+"/"+initialBuildingName+"/"+"null";
+                        "https://annotation.iwayplus.in/wayfinding/v1/app/android-navigation/"+initialVenueName+"/"+initialBuildingName+"/"+"null";
                 apifetcher obj = new apifetcher(apiUrl,initialBuildingName, holder, v, context);
                 obj.start();
 
@@ -159,7 +159,7 @@ public class BuildingAdapter extends RecyclerView.Adapter<BuildingAdapter.ViewHo
                 Log.d("roomdbb", "onClick: ");
                 String apiUrl =
                         //"https://inclunav.apps.iitd.ac.in/node/wayfinding/v1/app/android-navigation/ResearchPark/ResearchParkMain/null";
-                        "https://inclunav.apps.iitd.ac.in/node/wayfinding/v1/app/android-navigation/"+initialVenueName+"/"+initialBuildingName+"/"+"null";
+                        "https://annotation.iwayplus.in/wayfinding/v1/app/android-navigation/"+initialVenueName+"/"+initialBuildingName+"/"+"null";
                 apifetcher obj = new apifetcher(apiUrl,initialBuildingName, holder, v, context);
                 obj.start();
 

@@ -85,6 +85,7 @@ import com.android.volley.TimeoutError;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonArrayRequest;
 import com.android.volley.toolbox.JsonObjectRequest;
+import com.android.volley.toolbox.JsonRequest;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.google.android.gms.location.FusedLocationProviderClient;
@@ -95,6 +96,7 @@ import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
 import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.gson.JsonArray;
 import com.inclunav.iwayplus.CacheHelper;
 import com.inclunav.iwayplus.MessagePriority;
 import com.inclunav.iwayplus.R;
@@ -408,7 +410,7 @@ public class Navigation extends AppCompatActivity implements SensorEventListener
                 try {
                     if (sourceAPIData.containsKey(sourceName)) {
                         JSONObject jsonObject = new JSONObject(sourceAPIData.get(sourceName));
-                        Log.e("jsonObject", sourceAPIData.get(sourceName));
+                        Log.d("jsonObject", sourceAPIData.get(sourceName));
                         if (saveLocationType == "home" && saveLocationType == "work") {
                             saveLocationAPI(jsonObject);
                         } else if (saveLocationType == "other") {
@@ -1084,6 +1086,7 @@ public class Navigation extends AppCompatActivity implements SensorEventListener
 //                String existingData = null;
             if (existingData != null) {
                 try {
+                    Log.d("this one is working","haan whii");
                     processBuildingData(new JSONArray(existingData));
                 } catch (JSONException e) {
                     e.printStackTrace();
@@ -1117,9 +1120,11 @@ public class Navigation extends AppCompatActivity implements SensorEventListener
                 @Override
                 protected void onPostExecute(BuildingDataEntity cachedData) {
                     if (cachedData != null) {
+                        Log.d("cachedData","data"+cachedData.getResponseData());
                         // Data is available locally, use it
                         try {
                             JSONArray response = new JSONArray(cachedData.getResponseData());
+                            Log.d("responseData","data"+response);
                             processBuildingData(response);
                         } catch (JSONException e) {
                             Log.d("roomdbb", "onPostExecute: present data " + e);
@@ -1127,10 +1132,62 @@ public class Navigation extends AppCompatActivity implements SensorEventListener
                         }
                         Log.d("roomdbb", "onPostExecute: present data ");
                     } else {
-                        Log.d("roomdbb", "onPostExecute: fetching data ");
-                        String allNodesURL = base_url + "v1/app/android-navigation/" + venue + "/" + building + "/null";
+                        Log.d("roomdbbbb", "onPostExecute: fetching data ");
+
+//
+//                        String url = "https://dev.iwayplus.in/secured/building/beacons";
+//
+//
+//// Request a string response from the provided URL.
+//                        StringRequest stringRequest = new StringRequest(Request.Method.POST, url,
+//                                new Response.Listener<String>() {
+//                                    @Override
+//                                    public void onResponse(String response) {
+//                                        // Handle the response.
+//                                        Log.d("responseeee","reposne"+response.toString());
+//                                        try {
+//                                            JSONArray jsonArray1=new JSONArray(response);
+//                                            mCacheHelper.insertData("abcd", buildingName, jsonArray1.toString(), System.currentTimeMillis());
+//                                            processBuildingData(jsonArray1);
+//                                        } catch (JSONException e) {
+//                                            throw new RuntimeException(e);
+//                                        }
+//
+//
+////
+//
+//                                    }
+//                                }, new Response.ErrorListener() {
+//                            @Override
+//                            public void onErrorResponse(VolleyError error) {
+//
+//                                Log.d("responseeee","reposne"+error.toString());
+//                                // Handle errors.
+//                            }
+//                        }) {
+//                            @Override
+//                            protected Map<String,String> getParams(){
+//                                Map<String,String> params = new HashMap<String,String>();
+//                                params.put("buildingId","65d88861db333f894571481c");
+//                                return params;
+//                            }
+//                            @Override
+//                            public Map<String, String> getHeaders() {
+//                                Map<String, String> headers = new HashMap<>();
+//                                // headers.put("Content-Type", "application/json");
+//                                headers.put("x-access-token", "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NjA5MGU4MTM1ZWE4ZjJiMDdmMGE2ZTYiLCJyb2xlcyI6WyJ1c2VyIl0sImlhdCI6MTcxMTg2OTU2OSwiZXhwIjoxNzExODcwNDA5fQ.p8WlQtzvzJDPGu3cNKcnwUCVW3oi-KSLHCAWaQ-IuF8");
+//                                return headers;
+//                            }
+//                        };
+                        String allNodesURL =
+                                //base_url;
+                                base_url + "v1/app/android-navigation/" + venue + "/" + building + "/null";
+
+
+
                         JsonArrayRequest getAllNodesReq = new JsonArrayRequest
-                                (Request.Method.GET, allNodesURL, null, response -> {
+                                (Request.Method.POST, allNodesURL, null, response -> {
+                                    Log.d("intial data",response.toString());
 
                                     processBuildingData(response);
                                     mCacheHelper.insertData("abcd", buildingName, response.toString(), System.currentTimeMillis());
@@ -1169,7 +1226,8 @@ public class Navigation extends AppCompatActivity implements SensorEventListener
     //processes the response data
     private void processBuildingData(JSONArray response) {
         clearVariableList();
-        //response array has object corresponding to different buildings
+        //response array has obje corresponding to different buildings
+        Log.d("length","hehe "+response.length()+" "+response);
         try {
             for (int j = 0; j < response.length(); j++) {
 
@@ -1187,14 +1245,81 @@ public class Navigation extends AppCompatActivity implements SensorEventListener
                     String coordinates = coordinateX + "," + coordinateY;
                     nodeCoordToFloorElement.put(coordinates, elementType);
                     Point flrConnCoord = new Point(coordinateX, coordinateY);
+                    Log.d("beaconData","macID "+coordinates);
                     if (ElementTypes.SERVICES.value().equalsIgnoreCase(elementType)
                             && "beacons".equalsIgnoreCase(elementSubType)
                     ) {
                         propertiesObject.getString("macId");
                         String nodeMacId = propertiesObject.getString("macId").trim();
+                        Log.d("beaconDataa","macID "+nodeMacId+""+floorName);
+//                        String[] macID = {
+//                                "7C:D9:F4:01:14:69",
+//                                "7C:D9:F4:03:99:BD",
+//                                "7C:D9:F4:03:AF:F6",
+//                                "7C:D9:F4:02:7C:E6",
+//                                "7C:D9:F4:09:66:EA",
+//                                "7C:D9:F4:03:4B:CB",
+//                                "7C:D9:F4:07:12:56",
+//                                "7C:D9:F4:01:21:33",
+//                                "7C:D9:F4:00:B6:FA",
+//                                "7C:D9:F4:01:24:1D",
+//                                "7C:D9:F4:01:B8:83",
+//                                "7C:D9:F4:02:8B:FE",
+//                                "7C:D9:F4:03:86:1A",
+//                                "7C:D9:F4:02:4C:FB",
+//                                "7C:D9:F4:02:66:A7",
+//                                "7C:D9:F4:00:41:91",
+//                                "7C:D9:F4:01:13:8F",
+//                                "7C:D9:F4:1D:65:E1",
+//                                "7C:D9:F4:01:63:F3",
+//                                "7C:D9:F4:03:F3:9F",
+//                                "7C:D9:F4:03:5F:95",
+//                                "7C:D9:F4:02:53:B1",
+//                                "7C:D9:F4:02:0C:10",
+//                                "7C:D9:F4:03:02:D8",
+//                                "7C:D9:F4:01:D6:F9",
+//                                "7C:D9:F4:03:D2:6C"
+//                        };
+//                        String[] coord= {
+//                                "16,35",
+//                                "84,35",
+//                                "39,28",
+//                                "51,57",
+//                                "51,47",
+//                                "27,53",
+//                                "74,53",
+//                                "61,28",
+//                                "150,69",
+//                                "154,52",
+//                                "131,52",
+//                                "92,27",
+//                                "109,23",
+//                                "120,34",
+//                                "92,40",
+//                                "93,58",
+//                                "70,79",
+//                                "115,53",
+//                                "53,80",
+//                                "53,106",
+//                                "28,93",
+//                                "75,104",
+//                                "73,135",
+//                                "91,127",
+//                                "91,143",
+//                                "73,186"
+//                        };
 
+//                       for (int i =0;i<26;i++)
+//                       {
+//                           Log.d("macIDDDDD",macID[i]+" "+coord[i]);
+//            beaconObj.addBeacon(macID[i], "third", coord[i]);
+//            alwaysActiveScansObj.addBeacon(macID[i]);
+//             }
                         beaconObj.addBeacon(nodeMacId, floorName, coordinates);
                         alwaysActiveScansObj.addBeacon(nodeMacId);
+
+
+
 
                     } else {
                         if (ElementTypes.FLOOR_CONNECTION.value().equalsIgnoreCase(elementType)) {
@@ -1300,6 +1425,71 @@ public class Navigation extends AppCompatActivity implements SensorEventListener
 
                 }
             }
+
+            //adding mac ids and coordinates statically.
+            String[] macID = {
+                    "7C:D9:F4:01:14:69",
+                    "7C:D9:F4:03:99:BD",
+                    "7C:D9:F4:03:AF:F6",
+                    "7C:D9:F4:02:7C:E6",
+                    "7C:D9:F4:09:66:EA",
+                    "7C:D9:F4:03:4B:CB",
+                    "7C:D9:F4:07:12:56",
+                    "7C:D9:F4:01:21:33",
+                    "7C:D9:F4:00:B6:FA",
+                    "7C:D9:F4:01:24:1D",
+                    "7C:D9:F4:01:B8:83",
+                    "7C:D9:F4:02:8B:FE",
+                    "7C:D9:F4:03:86:1A",
+                    "7C:D9:F4:02:4C:FB",
+                    "7C:D9:F4:02:66:A7",
+                    "7C:D9:F4:00:41:91",
+                    "7C:D9:F4:01:13:8F",
+                    "7C:D9:F4:1D:65:E1",
+                    "7C:D9:F4:01:63:F3",
+                    "7C:D9:F4:03:F3:9F",
+                    "7C:D9:F4:03:5F:95",
+                    "7C:D9:F4:02:53:B1",
+                    "7C:D9:F4:02:0C:10",
+                    "7C:D9:F4:03:02:D8",
+                    "7C:D9:F4:01:D6:F9",
+                    "7C:D9:F4:03:D2:6C"
+            };
+            String[] coord= {
+                    "16,35",
+                    "84,35",
+                    "39,28",
+                    "51,57",
+                    "51,47",
+                    "27,53",
+                    "74,53",
+                    "61,28",
+                    "150,69",
+                    "154,52",
+                    "131,52",
+                    "92,27",
+                    "109,23",
+                    "120,34",
+                    "92,40",
+                    "93,58",
+                    "70,79",
+                    "115,53",
+                    "53,80",
+                    "53,106",
+                    "28,93",
+                    "75,104",
+                    "73,135",
+                    "91,127",
+                    "91,143",
+                    "73,186"
+            };
+
+//                       for (int i =0;i<26;i++)
+//                       {
+//                           Log.d("macIDDDDD",macID[i]+" "+coord[i]);
+//            beaconObj.addBeacon(macID[i], "third", coord[i]);
+//            alwaysActiveScansObj.addBeacon(macID[i]);
+//             }
 
 
             Collections.sort(sourcePointsList); //search is easier when list is sorted
@@ -2111,9 +2301,11 @@ public class Navigation extends AppCompatActivity implements SensorEventListener
         mainLogicThread = () -> {
             handler.postDelayed(mainLogicThread, 2000); //after every 2 secs it checks again
             currFloorObj = getFloorObjGivenName(currLocation.getFloor());
+            Log.d("mainLogic","got in");
             if (mainLogicThreadRunning && currFloorObj != null) {
                 queueLock.lock();
                 try {
+
                     disableBLE();
                     if (beaconObj.getAllBeacons().length < 1) {
                         return;
@@ -2136,8 +2328,8 @@ public class Navigation extends AppCompatActivity implements SensorEventListener
                     Collections.sort(beaconFusionSorted, (c1, c2) -> c1.second > c2.second ? -1 : c1.second.equals(c2.second) ? 0 : 1);
                     Collections.sort(beaconWeightsSorted, (c1, c2) -> c1.second > c2.second ? -1 : c1.second.equals(c2.second) ? 0 : 1);
 
-                    debugView.setText("");
-                    debugView.setTextColor(Color.RED);
+//                    debugView.setText("");
+//                    debugView.setTextColor(Color.RED);
 //                    Log.w("BW", beaconWeightsSorted.toString());
 //                    for (int i = 0; i < beaconWeightsSorted.size(); i++) {
 //                        debugView.append(beaconWeightsSorted.get(i).first + " -- " + oneDecimalForm.format(beaconWeightsSorted.get(i).second) + "\n");
@@ -2459,18 +2651,19 @@ public class Navigation extends AppCompatActivity implements SensorEventListener
                 for (String B : beaconObj.getAllBeacons()) {
                     //iterate over beacons in current floor and print the fusion constant
                     double C = beaconObj.weightOfBeacon(B);
+                    Log.d("weightOfBeacon","values: "+C);
                     beaconWeightsSorted.add(new Pair<>(B, C));
-                    Log.e("beaconWeightsSorted : ", B + ", " + C);
+                    Log.e("beaconWeightsSortedd : ", B + ", " + C);
                 }
                 Collections.sort(beaconWeightsSorted, (c1, c2) -> c1.second > c2.second ? -1 : c1.second.equals(c2.second) ? 0 : 1);
 
-                Log.e("BWW", beaconWeightsSorted.toString());
+                Log.d("BWW", beaconWeightsSorted.toString());
 
-//                debugView.setTextColor(Color.RED);
-//                debugView.setText("");
-//                for (int i = 0; i < beaconWeightsSorted.size(); i++) {
-//                    debugView.append(beaconWeightsSorted.get(i).first + " -- " + oneDecimalForm.format(beaconWeightsSorted.get(i).second) + "\n");
-//                }
+                debugView.setTextColor(Color.BLUE);
+                debugView.setText("");
+                for (int i = 0; i < beaconWeightsSorted.size(); i++) {
+                    debugView.append(beaconWeightsSorted.get(i).first + " -- " + oneDecimalForm.format(beaconWeightsSorted.get(i).second) + "\n");
+                }
 //                double[] multiLaterateLocation = alwaysActiveScansObj.multiLaterate();
 //                if (multiLaterateLocation != null) {
 //                    Log.e("multiLateration", Arrays.toString(multiLaterateLocation));
@@ -3220,6 +3413,9 @@ public class Navigation extends AppCompatActivity implements SensorEventListener
             beaconObj.addRSSI(macId, result.getRssi());
             Log.w("receivedScan", "MACID: " + macId + ", RSSI: " + result.getRssi());
             alwaysActiveScansObj.addRSSI(macId, result.getRssi());
+//            beaconObj.addRSSI("7C:D9:F4:01:13:8F", -90);
+//           // Log.w("receivedScan", "MACID: " + macId + ", RSSI: " + result.getRssi());
+//            alwaysActiveScansObj.addRSSI("7C:D9:F4:01:13:8F", -90);
         }
     }
 

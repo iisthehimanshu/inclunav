@@ -52,11 +52,12 @@ public class PathSearcher {
     }
 
 
-    public PathSearcher(int floorLength, int floorBreadth){
+    public PathSearcher(int floorLength, int floorBreadth,String floorName){
 
         this.M = floorBreadth;
         this.N = floorLength;
         this.mat = new int[this.M][this.N];
+        Log.d("responseeee",floorName+" "+this.M+" "+this.N);
     }
 
     private boolean isValid(int[][] mat, int[][] visited, int row, int col)
@@ -64,7 +65,7 @@ public class PathSearcher {
         return (row >= 0) && (row < M) && (col >= 0) && (col < N)
                 && mat[row][col] == 0 && visited[row][col]==0;
     }
-    public ArrayList<Point> getSimplePath(Point source, Point dest){
+    public ArrayList<Point> getSimplePath(Point source, Point dest,String floorName){
 
 //        Log.w("searchingPath",source.toString()+" to "+dest.toString());
         int i = source.y; //because x,y of canvas and matrix are inverse
@@ -72,13 +73,18 @@ public class PathSearcher {
         int x = dest.y;
         int y = dest.x;
         //takes {sourceX, sourceY}, {destX, destY} and returns shortest path
-
+        Log.d("length,breadth",M+""+N+" "+floorName);
         int[][] visited = new int[M][N];
 
         // create an empty queue
         Queue<Qelem> q = new ArrayDeque<>();
 
         // mark source cell as visited and enqueue the source Qelem
+        ArrayList<Point> resPath=new ArrayList<>();
+        if(i>visited.length-1 || j>visited[i].length-1){
+            Log.d("ERROR","lOGGED IT");
+            return resPath;
+        }
         visited[i][j] = 1;
         q.add(new Qelem(i, j, 0));
 

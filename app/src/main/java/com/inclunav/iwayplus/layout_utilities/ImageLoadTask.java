@@ -30,6 +30,7 @@ public class ImageLoadTask extends AsyncTask<Void, Void, Bitmap> {
     protected Bitmap doInBackground(Void... params) {
         try {
             URL urlConnection = new URL(url);
+            Log.d("imageUrl",url);
             HttpURLConnection connection = (HttpURLConnection) urlConnection
                     .openConnection();
             connection.setDoInput(true);
@@ -49,7 +50,7 @@ public class ImageLoadTask extends AsyncTask<Void, Void, Bitmap> {
         super.onPostExecute(result);
         BitmapDrawable background = new BitmapDrawable(context.getResources(), result);
         imageView.setBackground(background);
-        Log.w("ImageLoadTask","Completed!");
+        Log.w("ImageLoadTask","Completed!")  ;
     }
 
     public Bitmap getResizedBitmap(Bitmap bm, int newWidth, int newHeight) {

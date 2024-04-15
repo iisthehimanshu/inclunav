@@ -361,7 +361,7 @@ public class ConnectorGraph {
                     Point sourcePoint = floor_to_floorConn_map.get(floor_name).get(connector_names[i]);
                     Point destPoint = floor_to_floorConn_map.get(floor_name).get(connector_names[j]);
 
-                    ArrayList<Point> edgePath = currPS.getSimplePath(sourcePoint,destPoint);
+                    ArrayList<Point> edgePath = currPS.getSimplePath(sourcePoint,destPoint,floor_name);
                     double edgeLength = currPS.getDist();
                     Edge E1 = new Edge(v1,v2,edgeLength);
                     E1.assignEdgePath(edgePath);
@@ -399,7 +399,7 @@ public class ConnectorGraph {
         //so just add source to destination edge and return
         if(sourceNode.getFloor().equals(destNode.getFloor())){
             currPS = Utils.generatePathSearcher(sourceNode.getFloor(),floorDim,floorToNW);
-            ArrayList<Point> edgePath = currPS.getSimplePath(new Point(sourceNode.getGridX(),sourceNode.getGridY()),new Point(destNode.getGridX(),destNode.getGridY()));
+            ArrayList<Point> edgePath = currPS.getSimplePath(new Point(sourceNode.getGridX(),sourceNode.getGridY()),new Point(destNode.getGridX(),destNode.getGridY()),"");
             double edgeLength = currPS.getDist();
             Edge E = new Edge(SOURCE,DESTINATION,edgeLength);
             E.assignEdgePath(edgePath);
@@ -437,7 +437,7 @@ public class ConnectorGraph {
                 Point connectorPoint = floor_to_floorConn.get(destNode.getFloor()).get(connector_name);
                 Vertex Vconn = allVertexes.get(destNode.getFloor() + "-" + connector_name);
                 Point endPoint = new Point(destNode.getGridX(), destNode.getGridY());
-                ArrayList<Point> edgePath = currPS.getSimplePath(connectorPoint, endPoint);
+                ArrayList<Point> edgePath = currPS.getSimplePath(connectorPoint, endPoint,"");
                 double edgeLength = currPS.getDist();
                 if (edgePath.size() == 0) {
                     edgePath.add(endPoint);
@@ -497,7 +497,7 @@ public class ConnectorGraph {
                 Log.d("connectorpoint",""+c+connector_name);
                 currPS = Utils.generatePathSearcher(sourceNode.getFloor(), floorDim, floorToNW);
                 Point startPoint = new Point(sourceNode.getGridX(), sourceNode.getGridY());
-                ArrayList<Point> edgePath = currPS.getSimplePath(startPoint, connectorPoint);
+                ArrayList<Point> edgePath = currPS.getSimplePath(startPoint, connectorPoint,"");
                 double edgeLength = currPS.getDist();
                 if (edgePath.size() == 0) {
                     edgePath.add(startPoint);

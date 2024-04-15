@@ -39,9 +39,10 @@ public class BeaconDetails {
             floorToBeacons.put(floorName, arr);
         }
         floorToBeacons.get(floorName).add(macID);
+        Log.d("Added_Beacon", "macID: " + macID + " , Floor : " + floorName+"Coordinate: "+coordinate);
         beaconToBinCount.put(macID, new int[7]);
         beaconToFloorAndCoordinate.put(macID, new Pair<>(floorName, coordinate));
-        Log.d("Added_Beacon", "macID: " + macID + " , Floor : " + floorName);
+
     }
 
     public ArrayList<String> getBeaconsOfFloor(String floorName) {
@@ -96,7 +97,7 @@ public class BeaconDetails {
 
         qsize = Math.max(qsize, 1);
         Log.d("BMW", "qsize: " + qsize);
-        for (int i = 0; i < 6; i++) {
+        for (int i = 0; i <6; i++) {
             double binCount = beaconToBinCount.get(macID)[i];
             Log.d("BMW", "bincount: " + binCount);
             result += (binCount / qsize) * (weightOfbins[i] / 14.975);

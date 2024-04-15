@@ -103,7 +103,7 @@ public class NewDashboard  {
                     HttpURLConnection conn = (HttpURLConnection) url.openConnection();
                     conn.setRequestMethod("POST");
                     conn.setRequestProperty("Content-Type", "application/json"); // Set content type if needed
-                    conn.setRequestProperty("x-access-token", "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NjA3ZjAyMTY4MGQ4YmUyYTQwMjUyMGYiLCJyb2xlcyI6WyJ1c2VyIl0sImlhdCI6MTcxMTc5NjI1NywiZXhwIjoxNzExNzk3MDk3fQ.iyj6UeAeir59EerAk8l2pXUkBloWtr5whQluZwLiIXk");
+                    conn.setRequestProperty("x-access-token", "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NjE2MzgzZjU5MGIyNmRlNzFiYWIwMmUiLCJyb2xlcyI6WyJ1c2VyIl0sImlhdCI6MTcxMjczMjIyMywiZXhwIjoxNzEyNzMzMDYzfQ.ic7K2nKyKhT2qvx3YZSyYpPiiBNR7DxnKWlp1AjKSOY");
 
                     int responseCode = conn.getResponseCode();
 
@@ -139,6 +139,7 @@ public class NewDashboard  {
                             entity.setInitialVenueName((String) map.get("initialVenueName"));
                             List<Double> coordinates = (List<Double>) map.get("coordinates");
                             entity.setCoordinates((List<Double>) map.get("coordinates"));
+                            Log.d("buildingdataaaa",buildingData.toString());
                             if (coordinates != null && coordinates.size() == 2) {
                                 buildingData.put("latitude", String.valueOf(coordinates.get(0)));
                                 buildingData.put("longitude", String.valueOf(coordinates.get(1)));

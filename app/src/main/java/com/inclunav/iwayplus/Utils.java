@@ -1,6 +1,7 @@
 package com.inclunav.iwayplus;
 
 import android.graphics.Point;
+import android.util.Log;
 
 import com.inclunav.iwayplus.pdr.Sentences;
 import com.inclunav.iwayplus.path_search.PathSearcher;
@@ -99,7 +100,8 @@ public class Utils {
     //generates a pathSearcher object using the floorname, its dimension from floorDim and its non walkables from floorToNonWalkables
     public static PathSearcher generatePathSearcher(String floor_name, Map<String, int[]> floorDim, Map<String, ArrayList<String>> floorToNonWalkables) {
         int[] floor_dimension = floorDim.get(floor_name);
-        PathSearcher PS = new PathSearcher(floor_dimension[0],floor_dimension[1]);
+        Log.d("resss",floor_name+" "+floor_dimension[0]+" "+floor_dimension[1]);
+        PathSearcher PS = new PathSearcher(floor_dimension[0],floor_dimension[1],floor_name);
         //add non walkables in this path searcher
         for(String s: floorToNonWalkables.get(floor_name)){ PS.addNonWalkablePoints(s); }
         return PS;
